@@ -1,0 +1,27 @@
+/* Ma navbar  */
+nav {
+    background: #14213D;
+}
+
+.navbar-toggler {
+    color: white;
+}
+
+
+header a,
+.nav-link {
+    color: white !important;
+}
+
+header a:hover,
+.nav-link:hover {
+    color: #FEDFAC !important;
+
+
+}
+
+header .nav-link:focus {
+    color: #FEDFAC !important;
+}
+
+/* Fin Navbar */
