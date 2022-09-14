@@ -1,3 +1,90 @@
-<div th:replace="fragments/header::header"></div>
+<!DOCTYPE html>
+<html th:fragment="header" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Gestionnaire de plantes</title>
 
-<div>Bonjour</div>
+<!-- CSS -->
+<link rel="stylesheet" href="/css/navbar.css">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/collection.css">
+<link rel="stylesheet" href="/css/galerie.css">
+<link rel="stylesheet" href="/css/wishlist.css">
+<link rel="stylesheet" href="/css/details-plante.css">
+<link rel="stylesheet" href="/css/home.css">
+
+<!-- JavaScript -->
+<script defer src="/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+    <!--Landing image-->
+    <div class="landing-image">
+    </div>
+
+<!-- Menu Horizontal avec dropdown en version mobile -->
+<header>
+ 
+    <nav class="navbar navbar-expand-lg ">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/home}">Accueil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/collection}">Collection</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/wishlist}">Wishlist</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" th:href="@{/galerie}">Galerie</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  
+  </header>
+
+<div class="home">
+
+
+    <!-- Choix des catégories-->    
+    
+
+        <div class="row">
+
+            <!--Collection-->
+            <div class="container col-md-6">
+                <div class="collection d-flex align-items-center justify-content-center">
+                    <a type="button" class="btn btn-light btn-lg bouton-home" th:href="@{/collection}">Collection</a>
+                    
+                </div>
+            </div>
+
+            <!--Wishlist-->
+            <div class="container col-md-6">
+                <div class="wishlist d-flex align-items-center justify-content-center">
+                <a type="button" class="btn btn-light btn-lg bouton-home" th:href="@{/wishlist}">Wishlist</a>
+                    
+                </div>
+            </div>  
+
+        </div>
+        <!--Galerie-->
+       
+            <div class="galerie d-flex align-items-center justify-content-center">
+            <a type="button" class="btn btn-light btn-lg bouton-home" th:href="@{/galerie}">Galerie</a>
+                
+            </div>
+        
+        
+   
+</div>

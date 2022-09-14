@@ -1,0 +1,60 @@
+.home{
+    height:100vh;
+    color:#2F3E46;
+    background-color: #CAD2C5;
+}
+
+.bouton-home{
+    color:#CAD2C5;
+    background-color: #52796F;
+}
+
+.bouton-home:hover{
+    color:#52796F !important;
+    background-color: #CAD2C5 !important;
+}
+
+.landing-image{
+    height:15 vh;
+    width:auto;
+    min-height:200px;
+    background-image: url('/img/homepage/orchidee2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+}
+
+.collection{
+    height:30 vh;
+    width:auto;
+    min-height:300px;
+    background-image: url('/img/homepage/aloe-vera.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+}
+
+.wishlist{
+    height:30 vh;
+    width:auto;
+    min-height:300px;
+    background-image: url('/img/homepage/frangipanier2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+}
+
+.galerie{
+    height:30 vh;
+    width:auto;
+    min-height:300px;
+    background-image: url('/img/homepage/fougere3.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+}
+

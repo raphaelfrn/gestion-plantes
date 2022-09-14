@@ -1,12 +1,12 @@
 /* Ma navbar  */
 nav {
     background: #52796F;
+    font-size:24px !important;
 }
 
 .navbar-toggler {
     color: white;
 }
-
 
 header a,
 .nav-link {
