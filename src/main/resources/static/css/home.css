@@ -2,6 +2,7 @@
     height:100vh;
     color:#2F3E46;
     background-color: #CAD2C5;
+    overflow:hidden;
 }
 
 @media screen and (max-width:991px) {
@@ -12,6 +13,10 @@
     
 }
 
+
+.h-8{
+    height:8%;
+}
 /* Ma navbar  */
 nav {
     background: #52796F;
@@ -39,31 +44,43 @@ header .nav-link:focus {
 }
 
 
-.bouton-home{
+.btn{
     color:#CAD2C5;
     background-color: #52796F;
+    font-size:24px;
+    border-radius:0px;
 }
 
-.bouton-home:hover{
+
+.btn:active,
+.btn:target,
+.btn:focus,
+.btn:hover{
     color:#52796F !important;
     background-color: #CAD2C5 !important;
+    border: solid 1px #52796F !important;
+    outline:#52796F;
+    box-shadow: #52796F;
+}
+
+.h-12{
+    height:12%;
 }
 
 .landing-image{
-    height:15 vh;
-    width:auto;
-    min-height:200px;
-    background-image: url('/img/homepage/orchidee2.jpg');
+    background-image: url('/img/homepage/frangipanier3-paysage.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     
 }
 
+.h-40{
+    height:40%;
+}
+
 .collection{
-    height:33 vh;
-    width:auto;
-    min-height:300px;
+	height:100%;
     background-image: url('/img/homepage/aloe-vera.jpg');
     background-size: cover;
     background-position: center;
@@ -72,23 +89,18 @@ header .nav-link:focus {
 }
 
 .wishlist{
-    height:33 vh;
-    width:auto;
-    min-height:300px;
-    background-image: url('/img/homepage/frangipanier2.jpg');
+	height:100%;
+    background-image: url('/img/homepage/rainy-plante-filter.jpg');
     background-size: cover;
-    background-position: center;
     background-repeat: no-repeat;
     
 }
 
 .galerie{
-    height:33 vh;
-    width:auto;
-    min-height:300px;
-    background-image: url('/img/homepage/fougere3.jpg');
+    
+    background-image: url('/img/homepage/fougere5.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: top;
     background-repeat: no-repeat;
     
 }

@@ -16,13 +16,13 @@
 <body>
 <div class="home">
     <!--Landing image-->
-    <div class="landing-image">
+    <div class="landing-image h-12">
     </div>
 
 <!-- Menu Horizontal avec dropdown en version mobile -->
-<header class="media-query-hidden">
+<header class="media-query-hidden h-8">
  
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg h-100">
       <div class="container-fluid">
         <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
           <ul class="navbar-nav">
@@ -45,13 +45,10 @@
   
   </header>
 
-
-
-
     <!-- Choix des catégories-->    
     
       
-        <div class="row">
+        <div class="row h-40">
 
             <!--Collection-->
             <div class="col-md-6 pe-0">
@@ -70,13 +67,14 @@
             </div>  
 
         </div>
+      
         <!--Galerie-->
        
-            <div class="galerie d-flex align-items-center justify-content-center">
+            <div class="galerie h-40 d-flex align-items-center justify-content-center">
             <a type="button" class="btn btn-light btn-lg bouton-home" th:href="@{/galerie}">Galerie</a>
-                
             </div>
-        
+                
+       
         
    
 </div>
