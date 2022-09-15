@@ -10,3 +10,8 @@
 table .btn{
     font-size:14px !important;
 }
+
+table{
+    overflow:auto;
+    
+}
