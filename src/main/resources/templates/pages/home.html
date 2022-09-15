@@ -6,12 +6,7 @@
     <title>Gestionnaire de plantes</title>
 
 <!-- CSS -->
-<link rel="stylesheet" href="/css/navbar.css">
 <link rel="stylesheet" href="/css/bootstrap.min.css">
-<link rel="stylesheet" href="/css/collection.css">
-<link rel="stylesheet" href="/css/galerie.css">
-<link rel="stylesheet" href="/css/wishlist.css">
-<link rel="stylesheet" href="/css/details-plante.css">
 <link rel="stylesheet" href="/css/home.css">
 
 <!-- JavaScript -->
@@ -19,19 +14,16 @@
 
 </head>
 <body>
+<div class="home">
     <!--Landing image-->
     <div class="landing-image">
     </div>
 
 <!-- Menu Horizontal avec dropdown en version mobile -->
-<header>
+<header class="media-query-hidden">
  
-    <nav class="navbar navbar-expand-lg ">
+    <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
         <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
@@ -53,16 +45,16 @@
   
   </header>
 
-<div class="home">
+
 
 
     <!-- Choix des catégories-->    
     
-
+      
         <div class="row">
 
             <!--Collection-->
-            <div class="container col-md-6">
+            <div class="col-md-6 pe-0">
                 <div class="collection d-flex align-items-center justify-content-center">
                     <a type="button" class="btn btn-light btn-lg bouton-home" th:href="@{/collection}">Collection</a>
                     
@@ -70,7 +62,7 @@
             </div>
 
             <!--Wishlist-->
-            <div class="container col-md-6">
+            <div class="col-md-6 ps-0">
                 <div class="wishlist d-flex align-items-center justify-content-center">
                 <a type="button" class="btn btn-light btn-lg bouton-home" th:href="@{/wishlist}">Wishlist</a>
                     

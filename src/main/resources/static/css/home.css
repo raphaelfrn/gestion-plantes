@@ -4,6 +4,41 @@
     background-color: #CAD2C5;
 }
 
+@media screen and (max-width:991px) {
+
+    .media-query-hidden{
+        display:none;
+    }
+    
+}
+
+/* Ma navbar  */
+nav {
+    background: #52796F;
+    font-size:24px !important;
+}
+
+.navbar-toggler {
+    color: white;
+}
+
+header a,
+.nav-link {
+    color: #CAD2C5 !important;
+}
+
+header a:hover,
+.nav-link:hover {
+    color: #2F3E46 !important;
+
+
+}
+
+header .nav-link:focus {
+    color: #2F3E46   !important;
+}
+
+
 .bouton-home{
     color:#CAD2C5;
     background-color: #52796F;
@@ -26,7 +61,7 @@
 }
 
 .collection{
-    height:30 vh;
+    height:33 vh;
     width:auto;
     min-height:300px;
     background-image: url('/img/homepage/aloe-vera.jpg');
@@ -37,7 +72,7 @@
 }
 
 .wishlist{
-    height:30 vh;
+    height:33 vh;
     width:auto;
     min-height:300px;
     background-image: url('/img/homepage/frangipanier2.jpg');
@@ -48,7 +83,7 @@
 }
 
 .galerie{
-    height:30 vh;
+    height:33 vh;
     width:auto;
     min-height:300px;
     background-image: url('/img/homepage/fougere3.jpg');
