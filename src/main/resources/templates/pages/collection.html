@@ -1,1 +1,73 @@
 <div th:replace="fragments/header::header"></div>
+
+<div class="container-collection">
+
+
+    <div class="container">
+
+   
+        <button type="submit" class="btn btn-light btn-lg"> Filtre 1</button>    
+        <button type="submit" class="btn btn-light btn-lg"> Filtre 1</button>    
+        <button type="submit" class="btn btn-light btn-lg"> Filtre 1</button>    
+        <button type="submit" class="btn btn-light btn-lg"> Filtre 1</button>    
+
+    </div>
+    
+   <!--Table 1-->
+    <div class="container">
+        <h2 class="mb-5 justify-content-center">Collection</h2>
+        <div class="table-responsive">
+          <table class="table table-striped custom-table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Origine</th>
+                <th scope="col">Dimension</th>
+                <th scope="col">Détails</th>
+               
+              </tr>
+            </thead>
+            <tbody>
+              <tr scope="row">
+                <td>
+                 1392
+                </td>
+                <td>
+                  Frangipanier à fleurs blanches
+                </td>
+                <td>
+      Madagascar
+                </td>
+                <td>1 x 1 mètre </td>
+                
+                <td>
+                    <a type="button" class="btn btn-light btn-lg" th:href="@{/collection}">Voir</a>
+                </td>
+              </tr>
+              <tr scope="row">
+                <td>
+                 1393
+                </td>
+                <td>
+                  Frangipanier à fleurs roses
+                </td>
+                <td>
+      Madagascar
+                </td>
+                <td>1 x 1 mètre </td>
+                
+                <td>
+                    <a type="button" class="btn btn-light btn-lg" th:href="@{/collection}">Voir</a>
+                </td>
+              </tr>
+             
+              
+            </tbody>
+          </table>
+        </div>
+    </div>
+
+
+
+</div>
