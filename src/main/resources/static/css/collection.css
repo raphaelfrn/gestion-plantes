@@ -9,7 +9,6 @@
 
 .btn-filter{
 	display: flex;
-    justify-content: space-between !important;
     margin: 0!important;
 }
 
@@ -18,9 +17,8 @@
 	margin-left: 0!important;
 }
 
-.btn-filter-users {
-	width: 10vw;
-}
+
+
 
 .btn{
 	font-size:18px !important;

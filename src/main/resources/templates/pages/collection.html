@@ -2,96 +2,95 @@
 
 <div class="container-collection">
 
-
-  <div class="container btn-filter justify-content-center">
-
-    <form method="post">
-      <button type="submit" name="btnFilterId"
-        class="m-3 ml-3 btn btn-dark btn-filter-users">Filtrer par Id</button>
-    </form>
-    <form method="post">
-      <button type="submit" name="btnFilterNom" class="m-3 btn btn-dark btn-filter-users">Filtrer
-        par Nom</button>
-    </form>
-    <form method="post">
-      <button type="submit" name="btnFilterPrenom"
-        class="m-3 btn btn-dark btn-filter-users">Filtrer par Prenom</button>
-    </form>
-    <form method="post">
-      <button type="submit" name="btnFilterMail" class="m-3 btn btn-dark btn-filter-users">Filtrer
-        par Mail</button>
-    </form>
-    <form method="post">
-      <div class="input-group m-3 input-group-search">
-        <input type="text" class="form-control input-filter-users-search" placeholder="Recherche"
-          aria-label="Recherche" aria-describedby="btnSearch"
-          name="inputSearch">
-        <button type="submit" name="btnSearch" class=" btn btn-dark btn-filter-users-search"
-          id="btnSearch">Rechercher</button>
-      </div>
-    </form>
-   <!-- Button trigger modal -->
- <button type="button" class="m-3 ml-3 btn btn-dark btn-filter-users" data-bs-toggle="modal" data-bs-target="#addPlant">+</button> 
-
-
-<!--Modal ajouter une plante-->
-<!-- Modal -->
-<div class="modal fade" id="addPlant" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="addPlantLabel">Ajouter une plante</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-    
-        <!--Formulaire d'ajout de plante-->
+<div class="container">
+    <div class="row">
+      <div class="d-flex col-md-6">
         <form method="post">
-
-        <label for="inputNom" class="form-label">Nom</label>
-        <input type="password" id="inputNom" class="form-control">
-
-        <label for="inputOrigine" class="form-label">Origine</label>        
-        <input type="password" id="inputOrigine" class="form-control">
-
-        <label for="inputDimension" class="form-label">Dimension</label>
-        <input type="password" id="inputDimension" class="form-control">
-
-        <label for="inputDimension" class="form-label">Rusticité</label>
-        <input type="password" id="inputDimension" class="form-control">
-
-        <label for="inputDimension" class="form-label">Floraison</label>
-        <input type="password" id="inputDimension" class="form-control">
-
-        <label for="inputDimension" class="form-label">Taux d'exposition</label>
-        <input type="password" id="inputDimension" class="form-control">
-
-        <label for="inputDimension" class="form-label">Terrain</label>
-        <input type="password" id="inputDimension" class="form-control">
-
-        <label for="inputDimension" class="form-label">Liens</label>
-        <input type="password" id="inputDimension" class="form-control">
-
-        <label for="inputImages" class="form-label">Images</label>
-        <input class="form-control" type="file" id="inputImages" multiple>
-        
-      </form>
-
-
-
-
-
+          <button type="submit" name="btnFilterId"
+            class="m-3 btn btn-dark">Id</button>
+        </form>
+        <form method="post">
+          <button type="submit" name="btnFilterNom" class="m-3 btn btn-dark">Nom</button>
+        </form>
+        <form method="post">
+          <button type="submit" name="btnFilterPrenom"
+            class="m-3 btn btn-dark btn-filter-users">Origine</button>
+        </form>
+        <form method="post">
+          <button type="submit" name="btnFilterMail" class="m-3 btn btn-dark">Dimensions</button>
+        </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Retour</button>
-        <button type="button" class="btn btn-primary">Ajouter</button>
+      <div class="d-flex col-md-6 justify-content-end">
+        <form method="post">
+          <div class="input-group m-3 input-group-search">
+            <input type="text" class="form-control input-filter-users-search" placeholder="Recherche"
+              aria-label="Recherche" aria-describedby="btnSearch"
+              name="inputSearch">
+            <button type="submit" name="btnSearch" class=" btn btn-dark"
+              id="btnSearch">Rechercher</button>
+          </div>
+        </form>
+       <!-- Button trigger modal -->
+      
+    
+     <form>
+      <button type="button" class="m-3 btn btn-warning" data-bs-toggle="modal" data-bs-target="#addPlant">Ajouter</button> 
+    </form>
+    
+    
+    <!--Modal ajouter une plante-->
+    <!-- Modal -->
+        <div class="modal fade" id="addPlant" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="addPlantLabel">Ajouter une plante</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <!--Formulaire d'ajout de plante-->
+                <form method="post">
+    
+                <label for="inputNom" class="form-label">Nom</label>
+                <input type="password" id="inputNom" class="form-control">
+    
+                <label for="inputOrigine" class="form-label">Origine</label>        
+                <input type="password" id="inputOrigine" class="form-control">
+    
+                <label for="inputDimension" class="form-label">Dimension</label>
+                <input type="password" id="inputDimension" class="form-control">
+    
+                <label for="inputRusticite" class="form-label">Rusticité</label>
+                <input type="password" id="inputRusticite" class="form-control">
+    
+                <label for="inputFloraison" class="form-label">Floraison</label>
+                <input type="password" id="inputFloraison" class="form-control">
+    
+                <label for="inputExposition" class="form-label">Taux d'exposition</label>
+                <input type="password" id="inputExposition" class="form-control">
+    
+                <label for="inputTerrain" class="form-label">Terrain</label>
+                <input type="password" id="inputTerrain" class="form-control">
+    
+                <label for="inputLiens" class="form-label">Liens</label>
+                <input type="password" id="inputLiens" class="form-control">
+    
+                <label for="inputImages" class="form-label">Images</label>
+                <input class="form-control" type="file" id="inputImages" multiple>
+                
+              </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Retour</button>
+                <button type="button" class="btn btn-primary">Ajouter</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+
 </div>
-
-
-  </div>
     
    <!--Table 1-->
     <div class="container">
