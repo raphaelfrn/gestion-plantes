@@ -1,0 +1,38 @@
+.container-details{
+    padding-top:7%;
+    height:100vh;
+    color:#2F3E46;
+    background-color: #CAD2C5;
+    overflow:hidden;
+}
+
+/* couleur des onglets */
+
+.nav-tabs .nav-item .nav-link {
+    background-color: red;
+    color: #FFF;
+  }
+
+  /* onglet actif */
+  
+  .nav-tabs .nav-item .nav-link.active {
+    color: #0080FF;
+    background-color: orange;
+  }
+
+/* bordure du content */
+
+  .tab-content {
+    border: 1px solid blue;
+    border-top: transparent;
+    padding: 15px;
+  }
+  
+  /* background du content */
+
+   .tab-content .tab-pane {
+    background-color: #FFF;
+    color: #0080FF;
+    min-height: 200px;
+    height: auto;
+  }  
