@@ -24,23 +24,6 @@ header .nav-link:focus {
     color: #2F3E46   !important;
 }
 
-.btn{
-    color:#CAD2C5;
-    background-color: #52796F;
-    font-size:24px;
-    border-radius:0px;
-}
 
-
-.btn:active,
-.btn:target,
-.btn:focus,
-.btn:hover{
-    color:#52796F !important;
-    background-color: #CAD2C5 !important;
-    border: solid 1px #52796F !important;
-    outline:#52796F;
-    box-shadow: #52796F;
-}
 
 /* Fin Navbar */

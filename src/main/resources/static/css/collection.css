@@ -7,6 +7,30 @@
 }
 
 
+.btn-filter{
+	display: flex;
+    justify-content: space-between !important;
+    margin: 0!important;
+}
+
+
+.btn-filter button:first-child{
+	margin-left: 0!important;
+}
+
+.btn-filter-users {
+	width: 10vw;
+}
+
+.btn{
+	font-size:18px !important;
+}
+
+.input-group-search {
+    width: 15vw !important;
+}
+
+
 table .btn{
     font-size:14px !important;
 }
@@ -15,3 +39,4 @@ table{
     overflow:auto;
     
 }
+
