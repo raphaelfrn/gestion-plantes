@@ -7,25 +7,25 @@
 }
 
 
-.btn-filter{
-	display: flex;
-    margin: 0!important;
-}
-
-
-.btn-filter button:first-child{
-	margin-left: 0!important;
-}
-
-
-
-
 .btn{
 	font-size:18px !important;
 }
 
 .input-group-search {
     width: 15vw !important;
+}
+
+
+.modal-body{
+    background-color: #CAD2C5 ;
+}
+
+.modal-header, .modal-footer{
+   background-color: #52796F;
+}
+
+.modal-title{
+    color: #CAD2C5;
 }
 
 
@@ -37,4 +37,6 @@ table{
     overflow:auto;
     
 }
+
+
 
