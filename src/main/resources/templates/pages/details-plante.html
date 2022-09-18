@@ -2,68 +2,95 @@
 
 <div class="container-details">
 
-<div class="container bandeau">
+<div class="container bandeau text-center">
 
-    <h2>Nom de la plante</h2>
-    <button>Retour</button>
-    <button>Modifier</button>
-    <button>Supprimer</button>
+    <h2 class="mb">Nom de la plante</h2>
+    <button class="btn btn-secondary">Retour</button>
+    <button class="btn btn-warning">Modifier</button>
+    <button class="btn btn-danger">Supprimer</button>
 
 </div>
+<div class="row mt-5">
+  <div class="col-md-7 ms-2">
+    <div class="container onglets">
+
+        <!-- la liste d'onglet -->
+
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="origine-tab" data-bs-toggle="tab" data-bs-target="#origine-tab-pane" type="button" role="tab" aria-controls="origine-tab-pane" aria-selected="true">Origine</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="dimension-tab" data-bs-toggle="tab" data-bs-target="#dimension-tab-pane" type="button" role="tab" aria-controls="dimension-tab-pane" aria-selected="false">Dimension</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="rusticite-tab" data-bs-toggle="tab" data-bs-target="#rusticite-tab-pane" type="button" role="tab" aria-controls="rusticite-tab-pane" aria-selected="false">Rusticité</button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="floraison-tab" data-bs-toggle="tab" data-bs-target="#floraison-tab-pane" type="button" role="tab" aria-controls="floraison-tab-pane" aria-selected="false" >Floraison</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="exposition-tab" data-bs-toggle="tab" data-bs-target="#exposition-tab-pane" type="button" role="tab" aria-controls="exposition-tab-pane" aria-selected="false" >Exposition</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="terrain-tab" data-bs-toggle="tab" data-bs-target="#terrain-tab-pane" type="button" role="tab" aria-controls="terrain-tab-pane" aria-selected="false" >Terrain</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="comms-tab" data-bs-toggle="tab" data-bs-target="#comms-tab-pane" type="button" role="tab" aria-controls="comms-tab-pane" aria-selected="false" >Commentaires</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="liens-tab" data-bs-toggle="tab" data-bs-target="#liens-tab-pane" type="button" role="tab" aria-controls="liens-tab-pane" aria-selected="false" >Liens</button>
+              </li>
+          </ul>
 
 
-<div class="container onglets">
+          <!-- le contenu des onglets -->
 
-    <!-- la liste d'onglet -->
-
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item" role="presentation">
-          <button class="nav-link active" id="origine-tab" data-bs-toggle="tab" data-bs-target="#origine-tab-pane" type="button" role="tab" aria-controls="origine-tab-pane" aria-selected="true">Origine</button>
-        </li>
-        <li class="nav-item" role="presentation">
-          <button class="nav-link" id="dimension-tab" data-bs-toggle="tab" data-bs-target="#dimension-tab-pane" type="button" role="tab" aria-controls="dimension-tab-pane" aria-selected="false">Dimension</button>
-        </li>
-        <li class="nav-item" role="presentation">
-          <button class="nav-link" id="rusticite-tab" data-bs-toggle="tab" data-bs-target="#rusticite-tab-pane" type="button" role="tab" aria-controls="rusticite-tab-pane" aria-selected="false">Rusticité</button>
-        </li>
-        <li class="nav-item" role="presentation">
-          <button class="nav-link" id="floraison-tab" data-bs-toggle="tab" data-bs-target="#floraison-tab-pane" type="button" role="tab" aria-controls="floraison-tab-pane" aria-selected="false" >Floraison</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="exposition-tab" data-bs-toggle="tab" data-bs-target="#exposition-tab-pane" type="button" role="tab" aria-controls="exposition-tab-pane" aria-selected="false" >Exposition</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="terrain-tab" data-bs-toggle="tab" data-bs-target="#terrain-tab-pane" type="button" role="tab" aria-controls="terrain-tab-pane" aria-selected="false" >Terrain</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="comms-tab" data-bs-toggle="tab" data-bs-target="#comms-tab-pane" type="button" role="tab" aria-controls="comms-tab-pane" aria-selected="false" >Commentaires</button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="liens-tab" data-bs-toggle="tab" data-bs-target="#liens-tab-pane" type="button" role="tab" aria-controls="liens-tab-pane" aria-selected="false" >Liens</button>
-          </li>
-      </ul>
+          <div class="tab-content border-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="origine-tab-pane" role="tabpanel" aria-labelledby="origine-tab" tabindex="0">Lorem Ipsum</div>
+            <div class="tab-pane fade" id="dimension-tab-pane" role="tabpanel" aria-labelledby="dimension-tab" tabindex="0">Lorem Ipsum</div>
+            <div class="tab-pane fade" id="rusticite-tab-pane" role="tabpanel" aria-labelledby="rusticite-tab" tabindex="0">Lorem Ipsum</div>
+            <div class="tab-pane fade" id="floraison-tab-pane" role="tabpanel" aria-labelledby="floraison-tab" tabindex="0">Lorem Ipsum</div>
+            <div class="tab-pane fade" id="exposition-tab-pane" role="tabpanel" aria-labelledby="exposition-tab" tabindex="0">Lorem Ipsum</div>
+            <div class="tab-pane fade" id="terrain-tab-pane" role="tabpanel" aria-labelledby="terrain-tab" tabindex="0">Lorem Ipsum</div>
+            <div class="tab-pane fade" id="comms-tab-pane" role="tabpanel" aria-labelledby="comms-tab" tabindex="0">Lorem Ipsum</div>
+            <div class="tab-pane fade" id="liens-tab-pane" role="tabpanel" aria-labelledby="liens-tab" tabindex="0">Lorem Ipsum</div>
+          </div>
 
 
-      <!-- le contenu des onglets -->
-
-      <div class="tab-content border-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="origine-tab-pane" role="tabpanel" aria-labelledby="origine-tab" tabindex="0">...</div>
-        <div class="tab-pane fade" id="dimension-tab-pane" role="tabpanel" aria-labelledby="dimension-tab" tabindex="0">...</div>
-        <div class="tab-pane fade" id="rusticite-tab-pane" role="tabpanel" aria-labelledby="rusticite-tab" tabindex="0">...</div>
-        <div class="tab-pane fade" id="floraison-tab-pane" role="tabpanel" aria-labelledby="floraison-tab" tabindex="0">...</div>
-        <div class="tab-pane fade" id="exposition-tab-pane" role="tabpanel" aria-labelledby="exposition-tab" tabindex="0">...</div>
-        <div class="tab-pane fade" id="terrain-tab-pane" role="tabpanel" aria-labelledby="terrain-tab" tabindex="0">...</div>
-        <div class="tab-pane fade" id="comms-tab-pane" role="tabpanel" aria-labelledby="comms-tab" tabindex="0">...</div>
-        <div class="tab-pane fade" id="liens-tab-pane" role="tabpanel" aria-labelledby="liens-tab" tabindex="0">...</div>
+    </div>
+  </div>
+  <div class="col-md-4 me-2">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
       </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="/img/homepage/frangipanier1.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="/img/homepage/orchidee1.jpg" class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="/img/homepage/fougere1.jpg" class="d-block w-100" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
 
 
 </div>
-
-
-
-
-
 
 
 

@@ -1,38 +1,55 @@
 .container-details{
-    padding-top:7%;
+    padding-top:6%;
     height:100vh;
     color:#2F3E46;
     background-color: #CAD2C5;
     overflow:hidden;
 }
 
+
+.onglets{
+  height:70vh;
+}
+
 /* couleur des onglets */
 
 .nav-tabs .nav-item .nav-link {
-    background-color: red;
+    background-color: #354F52;
     color: #FFF;
   }
 
   /* onglet actif */
   
   .nav-tabs .nav-item .nav-link.active {
-    color: #0080FF;
-    background-color: orange;
+    color:#FFF;
+    background-color: #2F3E46;
+    border-color:#354F52;
+  }
+
+  .nav-tabs .nav-item .nav-link:hover {
+    color: #fff !important;
   }
 
 /* bordure du content */
 
   .tab-content {
-    border: 1px solid blue;
+    border: 0.5px solid #354F52;
     border-top: transparent;
-    padding: 15px;
   }
   
   /* background du content */
 
    .tab-content .tab-pane {
-    background-color: #FFF;
-    color: #0080FF;
+    background-color: #84A98C;
+    color: #2F3E46;
     min-height: 200px;
     height: auto;
   }  
+
+  /* Carousel images */
+  #carouselExampleIndicators .carousel-item img {
+    object-fit: cover;
+    object-position: center;
+    height: 40vh;
+    overflow: hidden;
+  }
