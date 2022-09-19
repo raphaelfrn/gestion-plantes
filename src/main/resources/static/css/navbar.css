@@ -16,8 +16,6 @@ header a,
 header a:hover,
 .nav-link:hover {
     color: #2F3E46 !important;
-
-
 }
 
 header .nav-link:focus {

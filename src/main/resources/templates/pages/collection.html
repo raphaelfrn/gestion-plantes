@@ -49,41 +49,43 @@
               </div>
               <div class="modal-body">
                 <!--Formulaire d'ajout de plante-->
-                <form method="post">
+                <form method="post" th:object="${plante}">
     
                 <label for="inputNom" class="form-label">Nom</label>
-                <input type="password" id="inputNom" class="form-control">
+                <input type="text" id="inputNom" class="form-control" th:field="*{nom}">
     
                 <label for="inputOrigine" class="form-label">Origine</label>        
-                <input type="password" id="inputOrigine" class="form-control">
+                <input type="text" id="inputOrigine" class="form-control" th:field="*{origine}">
     
                 <label for="inputDimension" class="form-label">Dimension</label>
-                <input type="password" id="inputDimension" class="form-control">
+                <input type="text" id="inputDimension" class="form-control" th:field="*{dimension}">
     
                 <label for="inputRusticite" class="form-label">Rusticité</label>
-                <input type="password" id="inputRusticite" class="form-control">
+                <input type="text" id="inputRusticite" class="form-control" th:field="*{rusticite}">
     
                 <label for="inputFloraison" class="form-label">Floraison</label>
-                <input type="password" id="inputFloraison" class="form-control">
+                <input type="text" id="inputFloraison" class="form-control" th:field="*{floraison}">
     
                 <label for="inputExposition" class="form-label">Taux d'exposition</label>
-                <input type="password" id="inputExposition" class="form-control">
+                <input type="text" id="inputExposition" class="form-control" th:field="*{exposition}">
     
                 <label for="inputTerrain" class="form-label">Terrain</label>
-                <input type="password" id="inputTerrain" class="form-control">
+                <input type="text" id="inputTerrain" class="form-control" th:field="*{terrain}">
     
                 <label for="inputLiens" class="form-label">Liens</label>
-                <input type="password" id="inputLiens" class="form-control">
+                <input type="text" id="inputLiens" class="form-control" th:field="*{liens}">
     
                 <label for="inputImages" class="form-label">Images</label>
                 <input class="form-control" type="file" id="inputImages" multiple>
-                
-              </form>
+              
+              
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Retour</button>
-                <button type="button" class="btn btn-warning">Ajouter</button>
+                <button type="submit" class="btn btn-warning">Ajouter</button>
               </div>
+              </form>
+             
             </div>
           </div>
         </div>
@@ -108,40 +110,15 @@
               </tr>
             </thead>
             <tbody>
-              <tr scope="row" class="align-middle">
-                <td>
-                 1392
-                </td>
-                <td>
-                  Frangipanier à fleurs blanches
-                </td>
-                <td>
-      Madagascar
-                </td>
-                <td>1 x 1 mètre </td>
-                
+              <tr scope="row" class="align-middle" th:each="plante : ${listePlantes}" >
+                <td th:text="${plante.id_plante}"></td>
+                <td th:text="${plante.nom}"></td>
+                <td th:text="${plante.origine}"></td>
+                <td th:text="${plante.dimension}"></td>
                 <td>
                     <a type="button" class="btn btn-light btn-lg" th:href="@{/details-plante}">Voir</a>
                 </td>
               </tr>
-              <tr scope="row" class="align-middle">
-                <td>
-                 1393
-                </td>
-                <td>
-                  Frangipanier à fleurs roses
-                </td>
-                <td>
-      Madagascar
-                </td>
-                <td>1 x 1 mètre </td>
-                
-                <td>
-                    <a type="button" class="btn btn-light btn-lg" th:href="@{/details-plante}">Voir</a>
-                </td>
-              </tr>
-             
-              
             </tbody>
           </table>
         </div>
