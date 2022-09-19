@@ -6,18 +6,18 @@
     <div class="row">
       <div class="d-flex col-md-6">
         <form method="post">
-          <button type="submit" name="btnFilterId" th:value="${btnFilterId}"
+          <button type="submit" name="btnFilterId" 
             class="m-3 btn btn-dark">Id</button>
         </form>
         <form method="post">
-          <button type="submit" name="btnFilterNom" th:value="${btnFilterNom}" class="m-3 btn btn-dark">Nom</button>
+          <button type="submit" name="btnFilterNom"  class="m-3 btn btn-dark">Nom</button>
         </form>
         <form method="post">
-          <button type="submit" name="btnFilterOrigine" th:value="${btnFilterOrigine}"
+          <button type="submit" name="btnFilterOrigine"
             class="m-3 btn btn-dark btn-filter-users">Origine</button>
         </form>
         <form method="post">
-          <button type="submit" name="btnFilterDimension" th:value="${btnFilterDimension}" class="m-3 btn btn-dark">Dimensions</button>
+          <button type="submit" name="btnFilterDimension" class="m-3 btn btn-dark">Dimensions</button>
         </form>
       </div>
       <div class="d-flex col-md-6 justify-content-end">
@@ -25,7 +25,7 @@
           <div class="input-group m-3 input-group-search">
             <input type="text" class="form-control input-filter-users-search" placeholder="Recherche"
               aria-label="Recherche" aria-describedby="btnSearch"
-              name="inputSearch" th:value="${inputSearch}"> 
+              name="inputSearch" > 
             <button type="submit" name="btnSearch" class=" btn btn-dark"
               id="btnSearch">Rechercher</button>
           </div>

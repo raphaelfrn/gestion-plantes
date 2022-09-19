@@ -27,22 +27,24 @@ public class CollectionController {
 			@RequestParam(name="btnFilterOrigine", required = false) Long btnFilterOrigine,
 			@RequestParam(name="btnFilterDimension", required = false) Long btnFilterDimension) {
 		
-		findAllPlantes(model);
+		List<Plante> listePlantes = planteRepository.findAll();
+		model.addAttribute("listePlantes",listePlantes);
 		
-		if(btnFilterId != null ) {
-		model.addAttribute("listePlantes", planteRepository.planteOrderById());
+		
+		if(btnFilterId != null ) { 	
+		model.addAttribute("listePlantes", planteRepository.findAll());	
 		}
 		
 		if(btnFilterNom != null ) {
-			model.addAttribute("listePlantes", planteRepository.planteOrderByNom());
+			model.addAttribute("listePlantes", planteRepository.findByOrderByNomAsc());
 			}
 		
 		if(btnFilterOrigine != null ) {
-			model.addAttribute("listePlantes", planteRepository.planteOrderByOrigine());
+			model.addAttribute("listePlantes", planteRepository.findByOrderByOrigineAsc());
 			}
 		
 		if(btnFilterDimension != null ) {
-			model.addAttribute("listePlantes", planteRepository.planteOrderByDimension());
+			model.addAttribute("listePlantes", planteRepository.findByOrderByDimensionAsc());
 			}
 		
 		if(btnSearch != null) {
@@ -59,13 +61,6 @@ public class CollectionController {
 	}
 	
 	
-	
-	// Methode to read all 
-	
-	public List<Plante> findAllPlantes(Model model){
-		List<Plante> listePlantes = planteRepository.findAll();
-		model.addAttribute("listePlantes",listePlantes);
-		return listePlantes;
-	}
+
 	
 }
