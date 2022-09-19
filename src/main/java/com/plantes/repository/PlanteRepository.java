@@ -21,9 +21,9 @@ public interface PlanteRepository extends JpaRepository<Plante, Long> {
 	@Query(value= "SELECT * FROM plante ORDER BY dimension", nativeQuery = true)
 	List<Plante> planteOrderByDimension();
 
-	@Query(value="SELECT * FROM plante WHERE id_plante LIKE ? OR nom LIKE ? OR origine LIKE ? OR dimension LIKE ? OR rusticite LIKE ? OR floraison LIKE ? "
-			+ "OR exposition LIKE ? OR terrain LIKE ? ", nativeQuery = true)
-	List<Plante> search();
+	@Query("SELECT p FROM Plante p WHERE p.id_plante LIKE ?1% OR p.nom LIKE ?1% OR p.origine LIKE ?1% OR p.dimension LIKE ?1% OR p.rusticite LIKE ?1% OR p.floraison LIKE ?1% "
+			+ "OR p.exposition LIKE ?1% OR p.terrain LIKE ?1% ")
+	List<Plante> searchBy(String mot);
 	
 	
 	

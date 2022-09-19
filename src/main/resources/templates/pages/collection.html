@@ -6,18 +6,18 @@
     <div class="row">
       <div class="d-flex col-md-6">
         <form method="post">
-          <button type="submit" name="btnFilterId"
+          <button type="submit" name="btnFilterId" th:value="${btnFilterId}"
             class="m-3 btn btn-dark">Id</button>
         </form>
         <form method="post">
-          <button type="submit" name="btnFilterNom" class="m-3 btn btn-dark">Nom</button>
+          <button type="submit" name="btnFilterNom" th:value="${btnFilterNom}" class="m-3 btn btn-dark">Nom</button>
         </form>
         <form method="post">
-          <button type="submit" name="btnFilterPrenom"
+          <button type="submit" name="btnFilterOrigine" th:value="${btnFilterOrigine}"
             class="m-3 btn btn-dark btn-filter-users">Origine</button>
         </form>
         <form method="post">
-          <button type="submit" name="btnFilterMail" class="m-3 btn btn-dark">Dimensions</button>
+          <button type="submit" name="btnFilterDimension" th:value="${btnFilterDimension}" class="m-3 btn btn-dark">Dimensions</button>
         </form>
       </div>
       <div class="d-flex col-md-6 justify-content-end">
@@ -25,70 +25,18 @@
           <div class="input-group m-3 input-group-search">
             <input type="text" class="form-control input-filter-users-search" placeholder="Recherche"
               aria-label="Recherche" aria-describedby="btnSearch"
-              name="inputSearch">
+              name="inputSearch" th:value="${inputSearch}"> 
             <button type="submit" name="btnSearch" class=" btn btn-dark"
               id="btnSearch">Rechercher</button>
           </div>
         </form>
-       <!-- Button trigger modal -->
+       <!-- Button vers page ajout plante-->
       
     
      <form>
-      <button type="button" class="m-3 btn btn-warning" data-bs-toggle="modal" data-bs-target="#addPlant">Ajouter</button> 
+      <a type="button" class="m-3 btn btn-warning" th:href="@{/ajout-plante}" >Ajouter</a> 
     </form>
-    
-    
-    <!--Modal ajouter une plante-->
-    <!-- Modal -->
-        <div class="modal fade" id="addPlant" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="addPlantLabel">Ajouter une plante</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <!--Formulaire d'ajout de plante-->
-                <form method="post" th:object="${plante}">
-    
-                <label for="inputNom" class="form-label">Nom</label>
-                <input type="text" id="inputNom" class="form-control" th:field="*{nom}">
-    
-                <label for="inputOrigine" class="form-label">Origine</label>        
-                <input type="text" id="inputOrigine" class="form-control" th:field="*{origine}">
-    
-                <label for="inputDimension" class="form-label">Dimension</label>
-                <input type="text" id="inputDimension" class="form-control" th:field="*{dimension}">
-    
-                <label for="inputRusticite" class="form-label">Rusticité</label>
-                <input type="text" id="inputRusticite" class="form-control" th:field="*{rusticite}">
-    
-                <label for="inputFloraison" class="form-label">Floraison</label>
-                <input type="text" id="inputFloraison" class="form-control" th:field="*{floraison}">
-    
-                <label for="inputExposition" class="form-label">Taux d'exposition</label>
-                <input type="text" id="inputExposition" class="form-control" th:field="*{exposition}">
-    
-                <label for="inputTerrain" class="form-label">Terrain</label>
-                <input type="text" id="inputTerrain" class="form-control" th:field="*{terrain}">
-    
-                <label for="inputLiens" class="form-label">Liens</label>
-                <input type="text" id="inputLiens" class="form-control" th:field="*{liens}">
-    
-                <label for="inputImages" class="form-label">Images</label>
-                <input class="form-control" type="file" id="inputImages" multiple>
-              
-              
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Retour</button>
-                <button type="submit" class="btn btn-warning">Ajouter</button>
-              </div>
-              </form>
-             
-            </div>
-          </div>
-        </div>
+  
       </div>
     </div>
 
