@@ -4,24 +4,26 @@ import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import com.plantes.model.Plante;
 
 public interface PlanteRepository extends JpaRepository<Plante, Long> {
 
 	
+//	List<Plante> findByOrderById_plante();
 	
-	List<Plante> findByOrderByNomAsc();
+	List<Plante> findAllByOrderByNomAsc();
 	
-	List<Plante> findByOrderByOrigineAsc();
+	List<Plante> findAllByOrderByOrigineAsc();
 	
-	List<Plante> findByOrderByDimensionAsc();
+	List<Plante> findAllByOrderByDimensionAsc();
 
-	@Query("SELECT p FROM Plante p WHERE p.id_plante LIKE ?1% OR p.nom LIKE ?1% OR p.origine LIKE ?1% OR p.dimension LIKE ?1% OR p.rusticite LIKE ?1% OR p.floraison LIKE ?1% "
-			+ "OR p.exposition LIKE ?1% OR p.terrain LIKE ?1% ")
-	List<Plante> searchBy(String mot);
 	
-	
+	@Query(value="SELECT * FROM Plante p WHERE p.id_plante LIKE %:keyword% OR p.nom LIKE %:keyword% or p.origine LIKE %:keyword% OR"
+			+ "p.dimension LIKE %:keyword% OR p.rusticite LIKE %:keyword% OR p.floraison LIKE %:keyword% OR p.exposition LIKE %:keyword% "
+			+ "OR p.terrain LIKE %:keyword%", nativeQuery=true)
+	List<Plante> findByKeyword(@Param("keyword") String keyword);
 	
 	
 	
