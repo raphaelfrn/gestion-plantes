@@ -45,4 +45,17 @@ public class DetailsPlanteController {
 		
 		return "pages/details-plante";
 	}
+	
+	
+	@GetMapping("/deletePlante/{id}")
+	public String delete(@PathVariable(value="id") Long idPlante, Model model) {
+		Optional<Plante> planteDelete =  planteService.findById(idPlante); 
+		
+		if(planteDelete.isPresent()) {
+			planteRepository.delete(planteDelete.get());
+		}
+		
+		return "redirect:/collection";
+	}
+	
 }

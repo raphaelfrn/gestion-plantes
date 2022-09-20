@@ -28,22 +28,29 @@
 
   .nav-tabs .nav-item .nav-link:hover {
     color: #fff !important;
+    border-color:#84A98C;
+    
   }
 
 /* bordure du content */
 
   .tab-content {
     border: 0.5px solid #354F52;
-    border-top: transparent;
+    height:35vh;
   }
+
+  
   
   /* background du content */
 
    .tab-content .tab-pane {
+    padding-top:1.25rem;
     background-color: #84A98C;
+    background-size:100%;
     color: #2F3E46;
     min-height: 200px;
     height: auto;
+    padding-bottom: 1.2rem;
   }  
 
   /* Carousel images */

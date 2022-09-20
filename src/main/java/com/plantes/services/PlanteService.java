@@ -32,7 +32,6 @@ public class PlanteService {
 		return planteRepository.save(planteUpdate);
 	}
 	
-	
 	// filter plante by name 
 	public List<Plante> findByOrderByNomAsc(){
 		return planteRepository.findAllByOrderByNomAsc();

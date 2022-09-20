@@ -2,10 +2,14 @@
 
 <div class="container-details" th:object="${plante}">
 
-<div class="container bandeau text-center">
+<div class="row">
+    <div class="container col-md-9"> 
+      <h2 class="ms-4" th:text="*{nom}"></h2>
+    </div>
 
-    <h2 class="mb" th:text="*{nom}"></h2>
-    <button class="btn btn-secondary">Retour</button>
+  <div class="container col-md-3 d-flex justify-content-end">
+   
+  <a th:href="@{/collection}" ><i class="fa-solid fa-arrow-left"></i></a> 
 
     <!-- Bouton modifier modal-->
     <form>
@@ -24,6 +28,8 @@
                   <div class="modal-body">
                     <!--Formulaire d'ajout de plante-->
                     <form method="post" th:action="@{/details-plante/{id}  (id=${plante.id_plante}) }">
+
+                      <input type="hidden" name="id_plante" th:value="*{id_plante}">
 
 		                  <label for="inputNom" class="form-label">Nom</label>
 			              <input type="text" id="inputNom" class="form-control" name="nom" th:value="*{nom}">
@@ -68,60 +74,37 @@
             </div>
 
 
-    <button class="btn btn-danger">Supprimer</button>
+    <button class="btn btn-danger" data-bs-toggle="modal" th:attr="data-bs-target='#deletePlant'+*{id_plante}" >Supprimer</button>
 
-</div>
-<div class="row mt-5">
-  <div class="col-md-7 ms-2">
-    <div class="container onglets">
+                   <!-- Modal  Suppression-->
+                   <div class="modal fade" th:id="*{'deletePlant'+{id_plante}}" tabindex="-1" aria-labelledby="updatePlante" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="deletePlantLabel">Supprimer une plante</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          
+                          <p>Etes-vous sûr de vouloir supprimer </p>
+                          <p th:text="*{nom}"></p>
+                        
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Retour</button>
+                          <a th:href="@{/deletePlante/{id} (id=${plante.id_plante}) }" type="submit" class="btn btn-danger">Supprimer</a>
+                       
+                        </div>
+                         </form>
+                      </div>
+                    </div>
+                  </div>
 
-        <!-- la liste d'onglet -->
-
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item" role="presentation">
-              <button class="nav-link active" id="origine-tab" data-bs-toggle="tab" data-bs-target="#origine-tab-pane" type="button" role="tab" aria-controls="origine-tab-pane" aria-selected="true">Origine</button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link" id="dimension-tab" data-bs-toggle="tab" data-bs-target="#dimension-tab-pane" type="button" role="tab" aria-controls="dimension-tab-pane" aria-selected="false">Dimension</button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link" id="rusticite-tab" data-bs-toggle="tab" data-bs-target="#rusticite-tab-pane" type="button" role="tab" aria-controls="rusticite-tab-pane" aria-selected="false">Rusticité</button>
-            </li>
-            <li class="nav-item" role="presentation">
-              <button class="nav-link" id="floraison-tab" data-bs-toggle="tab" data-bs-target="#floraison-tab-pane" type="button" role="tab" aria-controls="floraison-tab-pane" aria-selected="false" >Floraison</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="exposition-tab" data-bs-toggle="tab" data-bs-target="#exposition-tab-pane" type="button" role="tab" aria-controls="exposition-tab-pane" aria-selected="false" >Exposition</button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button class="nav-link" id="terrain-tab" data-bs-toggle="tab" data-bs-target="#terrain-tab-pane" type="button" role="tab" aria-controls="terrain-tab-pane" aria-selected="false" >Terrain</button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button class="nav-link" id="comms-tab" data-bs-toggle="tab" data-bs-target="#comms-tab-pane" type="button" role="tab" aria-controls="comms-tab-pane" aria-selected="false" >Commentaires</button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button class="nav-link" id="liens-tab" data-bs-toggle="tab" data-bs-target="#liens-tab-pane" type="button" role="tab" aria-controls="liens-tab-pane" aria-selected="false" >Liens</button>
-              </li>
-          </ul>
-
-
-          <!-- le contenu des onglets -->
-
-          <div class="tab-content border-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="origine-tab-pane" role="tabpanel" aria-labelledby="origine-tab" tabindex="0" th:text="*{origine}"></div>
-            <div class="tab-pane fade" id="dimension-tab-pane" role="tabpanel" aria-labelledby="dimension-tab" tabindex="0" th:text="*{dimension}"></div>
-            <div class="tab-pane fade" id="rusticite-tab-pane" role="tabpanel" aria-labelledby="rusticite-tab" tabindex="0" th:text="*{rusticite}"></div>
-            <div class="tab-pane fade" id="floraison-tab-pane" role="tabpanel" aria-labelledby="floraison-tab" tabindex="0" th:text="*{floraison}"></div>
-            <div class="tab-pane fade" id="exposition-tab-pane" role="tabpanel" aria-labelledby="exposition-tab" tabindex="0" th:text="*{exposition}"></div>
-            <div class="tab-pane fade" id="terrain-tab-pane" role="tabpanel" aria-labelledby="terrain-tab" tabindex="0" th:text="*{terrain}"></div>
-            <div class="tab-pane fade" id="comms-tab-pane" role="tabpanel" aria-labelledby="comms-tab" tabindex="0">Commentaires</div>
-            <div class="tab-pane fade" id="liens-tab-pane" role="tabpanel" aria-labelledby="liens-tab" tabindex="0" th:text="*{liens}"></div>
-          </div>
-
-
-    </div>
   </div>
-  <div class="col-md-4 me-2">
+</div>
+
+<div class="row mt-5">
+  <div class="col-md-6 ms-2">
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -149,6 +132,69 @@
       </button>
     </div>
   </div>
+  <div class="col-md-5 me-2">
+    <div class="container onglets">
+
+        <!-- la liste d'onglet -->
+
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="origine-tab" data-bs-toggle="tab" data-bs-target="#origine-tab-pane" type="button" role="tab" aria-controls="origine-tab-pane" aria-selected="true">Informations</button>
+            </li>
+      
+        
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="comms-tab" data-bs-toggle="tab" data-bs-target="#comms-tab-pane" type="button" role="tab" aria-controls="comms-tab-pane" aria-selected="false" >Commentaires</button>
+              </li>
+
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="images-tab" data-bs-toggle="tab" data-bs-target="#images-tab-pane" type="button" role="tab" aria-controls="image-tab-pane" aria-selected="false" >Images</button>
+              </li>
+             
+          </ul>
+
+
+          <!-- le contenu des onglets -->
+
+          <div class="tab-content border-content overflow-auto" id="myTabContent">
+            <div class="tab-pane fade show active" id="origine-tab-pane" role="tabpanel" aria-labelledby="origine-tab" tabindex="0">
+
+              <div class="container">
+                  <span><u>Origine</u> : </span> 
+                  <span th:text="*{origine}"></span>
+                  <hr>
+                  <span><u>Dimension</u> : </span> 
+                  <span th:text="*{dimension}"></span>
+                  <hr>
+                  <span><u>Rusticité</u> : </span> 
+                  <span th:text="*{rusticite}"></span>
+                  <hr>
+                  <span><u>Floraison</u> : </span> 
+                  <span th:text="*{floraison}"></span>
+                  <hr>
+                  <span><u>Exposition</u> : </span> 
+                  <span th:text="*{exposition}"></span>
+                  <hr>
+                  <span><u>Terrain</u> : </span> 
+                  <span th:text="*{terrain}"></span>
+                  <hr>
+                  <span><u>Liens</u> : </span> 
+                  <span th:text="*{liens}"></span>
+                  
+              </div>
+
+
+            </div>
+     
+            <div class="tab-pane fade" id="comms-tab-pane" role="tabpanel" aria-labelledby="comms-tab" tabindex="0">Commentaires</div>
+            <div class="tab-pane fade" id="images-tab-pane" role="tabpanel" aria-labelledby="images-tab" tabindex="0">Images</div>
+         
+          </div>
+
+
+    </div>
+  </div>
+ 
 
 
 </div>
