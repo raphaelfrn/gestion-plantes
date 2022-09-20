@@ -20,11 +20,6 @@ public class PlanteService {
 		return planteRepository.findAll();
 	}
 	
-	// filter plante by Id
-//	public	List<Plante> findByOrderById_plante(){
-//		return planteRepository.findByOrderById_plante();
-//	
-//	}
 	
 	// filter plante by name 
 	public List<Plante> findByOrderByNomAsc(){

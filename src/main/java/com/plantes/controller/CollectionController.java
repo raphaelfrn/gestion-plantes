@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -30,14 +32,15 @@ public class CollectionController {
 			@RequestParam(name="btnFilterDimension", required = false) Long btnFilterDimension) {
 		
 		List<Plante> listePlantes = planteService.findAllPlantes();
-		model.addAttribute("listePlantes",listePlantes);
+	//	model.addAttribute("listePlantes",listePlantes);
 		
 		
-//		if(btnFilterId != null ) { 	
-//		model.addAttribute("listePlantes", planteService.findByOrderById_plante());	
-//		}
+		if(btnFilterId != null ) { 	
+		model.addAttribute("listePlantes", listePlantes);	
+		}
 		
 		if(btnFilterNom != null ) {
+			
 			model.addAttribute("listePlantes", planteService.findByOrderByNomAsc());
 			}
 		
@@ -49,19 +52,28 @@ public class CollectionController {
 			model.addAttribute("listePlantes", planteRepository.findAll(Sort.by(Sort.Direction.ASC, "dimension")));
 			}
 		
-		if(keyword != null) {
+		if(keyword != null)   {
 		model.addAttribute("listePlantes", planteService.findByKeyword(keyword));
-		} else {
+		} 
+		 if(btnFilterNom == null && btnFilterOrigine == null && btnFilterDimension == null) {
 			model.addAttribute("listePlantes",listePlantes);
-		}
+		 }
 		
 		
 		return "pages/collection";
 	}
 	
 	@PostMapping("/collection")
-	public String postCollection() {
-		return "pages/collection";
+	public String postCollection(@Validated Plante plante, BindingResult bindingResult) {
+		
+		if(bindingResult.hasErrors()) {
+			return "pages/collection";
+			
+		} else {
+			
+			planteRepository.save(plante);
+		}
+		return "redirect:/collection";
 	}
 	
 	
