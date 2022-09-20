@@ -1,6 +1,6 @@
 .container-collection{
+	height:100vh;
     padding-top:7%;
-    height:100vh;
     color:#2F3E46;
     background-color: #CAD2C5;
 
@@ -21,10 +21,8 @@ table .btn{
     font-size:14px !important;
 }
 
-table{
-    overflow:auto;
-    
+.table-responsive{
+    height:60vh;
 }
-
 
 

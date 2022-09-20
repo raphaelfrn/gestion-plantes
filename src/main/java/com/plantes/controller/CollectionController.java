@@ -55,6 +55,7 @@ public class CollectionController {
 		if(keyword != null)   {
 		model.addAttribute("listePlantes", planteService.findByKeyword(keyword));
 		} 
+		
 		 if(btnFilterNom == null && btnFilterOrigine == null && btnFilterDimension == null) {
 			model.addAttribute("listePlantes",listePlantes);
 		 }

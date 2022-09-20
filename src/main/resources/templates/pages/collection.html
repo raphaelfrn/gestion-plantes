@@ -30,7 +30,7 @@
               id="btnSearch">Rechercher</button>
           </div>
         </form>
-       <!-- Button vers page ajout plante-->
+       <!-- Button vers modal ajout plante-->
        <form>
         <button type="button" class="m-3 btn btn-warning" data-bs-toggle="modal" data-bs-target="#addPlant">Ajouter</button> 
       </form>
@@ -96,7 +96,7 @@
    <!--Table 1-->
     <div class="container">
         <h2 class="mb-5 text-center">Collection</h2>
-        <div class="table-responsive">
+        <div class="table-responsive overflow-auto">
           <table class="table table-striped custom-table">
             <thead>
               <tr>
@@ -115,7 +115,8 @@
                 <td th:text="${plante.origine}"></td>
                 <td th:text="${plante.dimension}"></td>
                 <td>
-                    <a type="button" class="btn btn-light btn-lg" th:href="@{/details-plante}">Voir</a>
+                    <a type="button" class="btn btn-light btn-lg" th:href="@{/details-plante/{id}  (id=${plante.id_plante}) }">Voir</a>
+                 
                 </td>
               </tr>
             </tbody>

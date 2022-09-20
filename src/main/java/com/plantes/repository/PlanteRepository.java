@@ -23,6 +23,7 @@ public interface PlanteRepository extends JpaRepository<Plante, Long> {
 			+ " p.dimension LIKE %:keyword% OR p.rusticite LIKE %:keyword% OR p.floraison LIKE %:keyword% OR p.exposition LIKE %:keyword% "
 			+ "OR p.terrain LIKE %:keyword%", nativeQuery=true)
 	List<Plante> findByKeyword(@Param("keyword") String keyword);
+
 	
 	
 	

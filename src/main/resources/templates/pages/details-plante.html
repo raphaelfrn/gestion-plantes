@@ -1,12 +1,73 @@
 <div th:replace="fragments/header::header"></div>
 
-<div class="container-details">
+<div class="container-details" th:object="${plante}">
 
 <div class="container bandeau text-center">
 
-    <h2 class="mb">Nom de la plante</h2>
+    <h2 class="mb" th:text="*{nom}"></h2>
     <button class="btn btn-secondary">Retour</button>
-    <button class="btn btn-warning">Modifier</button>
+
+    <!-- Bouton modifier modal-->
+    <form>
+      <button type="button" class="btn btn-warning" data-bs-toggle="modal"  th:attr="data-bs-target='#updatePlant'+*{id_plante}">Modifier</button> 
+    </form>
+
+ <!--Modal modifier une plante-->
+            <!-- Modal -->
+            <div class="modal fade" th:id="*{'updatePlant'+{id_plante}}" tabindex="-1" aria-labelledby="updatePlante" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="updatePlantLabel">Modifier une plante</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <!--Formulaire d'ajout de plante-->
+                    <form method="post" th:action="@{/details-plante/{id}  (id=${plante.id_plante}) }">
+
+		                  <label for="inputNom" class="form-label">Nom</label>
+			              <input type="text" id="inputNom" class="form-control" name="nom" th:value="*{nom}">
+			  
+			              <label for="inputOrigine" class="form-label">Origine</label>        
+			              <input type="text" id="inputOrigine" class="form-control" name="origine" th:value="*{origine}">
+			  
+			              <label for="inputDimension" class="form-label">Dimension</label>
+			              <input type="text" id="inputDimension" class="form-control" name="dimension" th:value="*{dimension}">
+			  
+			              <label for="inputRusticite" class="form-label">Rusticité</label>
+			              <input type="text" id="inputRusticite" class="form-control" name="rusticite" th:value="*{rusticite}">
+			  
+			              <label for="inputFloraison" class="form-label">Floraison</label>
+			              <input type="text" id="inputFloraison" class="form-control" name="floraison" th:value="*{floraison}">
+			  
+			              <label for="inputExposition" class="form-label">Taux d'exposition</label>
+			              <input type="text" id="inputExposition" class="form-control" name="exposition" th:value="*{exposition}">
+			  
+			              <label for="inputTerrain" class="form-label">Terrain</label>
+			              <input type="text" id="inputTerrain" class="form-control" name="terrain" th:value="*{terrain}">
+
+                    <label for="inputCommentaires" class="form-label">Commentaires</label>
+			              <input type="text" id="inputLiens" class="form-control" name="commentaire">
+			  
+			              <label for="inputLiens" class="form-label">Liens</label>
+			              <input type="text" id="inputLiens" class="form-control" name="liens" th:value="*{liens}">
+			  
+			              <label for="inputImages" class="form-label">Images</label>
+			              <input class="form-control" type="file" id="inputImages" multiple>
+                    
+                  
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Retour</button>
+                    <button type="submit" class="btn btn-warning">Modifier</button>
+                 
+                  </div>
+                   </form>
+                </div>
+              </div>
+            </div>
+
+
     <button class="btn btn-danger">Supprimer</button>
 
 </div>
@@ -47,14 +108,14 @@
           <!-- le contenu des onglets -->
 
           <div class="tab-content border-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="origine-tab-pane" role="tabpanel" aria-labelledby="origine-tab" tabindex="0">Lorem Ipsum</div>
-            <div class="tab-pane fade" id="dimension-tab-pane" role="tabpanel" aria-labelledby="dimension-tab" tabindex="0">Lorem Ipsum</div>
-            <div class="tab-pane fade" id="rusticite-tab-pane" role="tabpanel" aria-labelledby="rusticite-tab" tabindex="0">Lorem Ipsum</div>
-            <div class="tab-pane fade" id="floraison-tab-pane" role="tabpanel" aria-labelledby="floraison-tab" tabindex="0">Lorem Ipsum</div>
-            <div class="tab-pane fade" id="exposition-tab-pane" role="tabpanel" aria-labelledby="exposition-tab" tabindex="0">Lorem Ipsum</div>
-            <div class="tab-pane fade" id="terrain-tab-pane" role="tabpanel" aria-labelledby="terrain-tab" tabindex="0">Lorem Ipsum</div>
-            <div class="tab-pane fade" id="comms-tab-pane" role="tabpanel" aria-labelledby="comms-tab" tabindex="0">Lorem Ipsum</div>
-            <div class="tab-pane fade" id="liens-tab-pane" role="tabpanel" aria-labelledby="liens-tab" tabindex="0">Lorem Ipsum</div>
+            <div class="tab-pane fade show active" id="origine-tab-pane" role="tabpanel" aria-labelledby="origine-tab" tabindex="0" th:text="*{origine}"></div>
+            <div class="tab-pane fade" id="dimension-tab-pane" role="tabpanel" aria-labelledby="dimension-tab" tabindex="0" th:text="*{dimension}"></div>
+            <div class="tab-pane fade" id="rusticite-tab-pane" role="tabpanel" aria-labelledby="rusticite-tab" tabindex="0" th:text="*{rusticite}"></div>
+            <div class="tab-pane fade" id="floraison-tab-pane" role="tabpanel" aria-labelledby="floraison-tab" tabindex="0" th:text="*{floraison}"></div>
+            <div class="tab-pane fade" id="exposition-tab-pane" role="tabpanel" aria-labelledby="exposition-tab" tabindex="0" th:text="*{exposition}"></div>
+            <div class="tab-pane fade" id="terrain-tab-pane" role="tabpanel" aria-labelledby="terrain-tab" tabindex="0" th:text="*{terrain}"></div>
+            <div class="tab-pane fade" id="comms-tab-pane" role="tabpanel" aria-labelledby="comms-tab" tabindex="0">Commentaires</div>
+            <div class="tab-pane fade" id="liens-tab-pane" role="tabpanel" aria-labelledby="liens-tab" tabindex="0" th:text="*{liens}"></div>
           </div>
 
 

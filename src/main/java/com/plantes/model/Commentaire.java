@@ -1,4 +1,4 @@
-package com.plantes.model;
+	package com.plantes.model;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;

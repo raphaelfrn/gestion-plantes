@@ -1,6 +1,7 @@
 package com.plantes.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,17 @@ public class PlanteService {
 	// find all plantes
 	public List<Plante> findAllPlantes(){
 		return planteRepository.findAll();
+	}
+	
+	// find by Id
+	public Optional<Plante> findById(Long id) {
+		return planteRepository.findById(id);
+	}
+	
+	
+	// save
+	public Plante save(Plante planteUpdate) {
+		return planteRepository.save(planteUpdate);
 	}
 	
 	
