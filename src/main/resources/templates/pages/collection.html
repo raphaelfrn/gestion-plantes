@@ -46,7 +46,7 @@
                   </div>
                   <div class="modal-body">
                     <!--Formulaire d'ajout de plante-->
-                    <form method="post">
+                    <form method="post" enctype="multipart/form-data">
 
 		                  <label for="inputNom" class="form-label">Nom</label>
 			              <input type="text" id="inputNom" class="form-control" name="nom">
@@ -72,8 +72,17 @@
 			              <label for="inputLiens" class="form-label">Liens</label>
 			              <input type="text" id="inputLiens" class="form-control" name="liens">
 			  
-			              <label for="inputImages" class="form-label">Images</label>
-			              <input class="form-control" type="file" id="inputImages" multiple>
+			              <label for="inputMainImage" class="form-label">Image principale</label>
+			              <input class="form-control" type="file" id="inputMainImage" name="primaryImage" accept="image/png, image/jpeg">
+
+                    <label for="inputImage2" class="form-label">Image 2</label>
+			              <input class="form-control" type="file" id="inputImage2" name="extraImage" accept="image/png, image/jpeg">
+
+                    <label for="inputImage3" class="form-label">Image 3</label>
+			              <input class="form-control" type="file" id="inputImage3" name="extraImage" accept="image/png, image/jpeg">
+
+                    <label for="inputImage4" class="form-label">Image 4</label>
+			              <input class="form-control" type="file" id="inputImage4" name="extraImage" accept="image/png, image/jpeg">
                     
                   
                   </div>

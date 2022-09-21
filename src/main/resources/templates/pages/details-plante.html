@@ -187,7 +187,11 @@
             </div>
      
             <div class="tab-pane fade" id="comms-tab-pane" role="tabpanel" aria-labelledby="comms-tab" tabindex="0">Commentaires</div>
-            <div class="tab-pane fade" id="images-tab-pane" role="tabpanel" aria-labelledby="images-tab" tabindex="0">Images</div>
+            <div class="tab-pane fade" id="images-tab-pane" role="tabpanel" aria-labelledby="images-tab" tabindex="0">
+
+                <img th:src="@{${plante.mainImagePath}}">
+
+            </div>
          
           </div>
 
