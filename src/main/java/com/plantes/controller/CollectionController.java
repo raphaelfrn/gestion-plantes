@@ -52,13 +52,13 @@ public class CollectionController {
 			model.addAttribute("listePlantes", planteRepository.findAll(Sort.by(Sort.Direction.ASC, "dimension")));
 			}
 		
-		if(keyword != null)   {
+		if(keyword != null) {
 		model.addAttribute("listePlantes", planteService.findByKeyword(keyword));
-		} 
+			} 
 		
-		 if(btnFilterNom == null && btnFilterOrigine == null && btnFilterDimension == null) {
+		if(btnFilterNom == null && btnFilterOrigine == null && btnFilterDimension == null && btnFilterId == null && keyword == null) {
 			model.addAttribute("listePlantes",listePlantes);
-		 }
+		 	}
 		
 		
 		return "pages/collection";

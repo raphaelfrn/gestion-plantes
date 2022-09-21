@@ -3,18 +3,16 @@
 <div class="container-details" th:object="${plante}">
 
 <div class="row">
-    <div class="container col-md-9"> 
+    <div class="container col-md-8"> 
       <h2 class="ms-4" th:text="*{nom}"></h2>
     </div>
 
-  <div class="container col-md-3 d-flex justify-content-end">
+  <div class="container col-md-3 me-5 d-flex justify-content-end">
    
-  <a th:href="@{/collection}" ><i class="fa-solid fa-arrow-left"></i></a> 
+    <a th:href="@{/collection}" > <button class="btn btn-secondary"><i class="fa-solid fa-arrow-left"></i></button></a> 
 
     <!-- Bouton modifier modal-->
-    <form>
-      <button type="button" class="btn btn-warning" data-bs-toggle="modal"  th:attr="data-bs-target='#updatePlant'+*{id_plante}">Modifier</button> 
-    </form>
+    <form><button type="button" class="btn btn-warning" data-bs-toggle="modal"  th:attr="data-bs-target='#updatePlant'+*{id_plante}"><i class="fa-regular fa-pen-to-square"></i></button></form>
 
  <!--Modal modifier une plante-->
             <!-- Modal -->
@@ -74,13 +72,13 @@
             </div>
 
 
-    <button class="btn btn-danger" data-bs-toggle="modal" th:attr="data-bs-target='#deletePlant'+*{id_plante}" >Supprimer</button>
+   <form><button type="button" class="btn btn-danger" data-bs-toggle="modal" th:attr="data-bs-target='#deletePlant'+*{id_plante}" ><i class="fa-solid fa-trash"></i></button></form> 
 
                    <!-- Modal  Suppression-->
-                   <div class="modal fade" th:id="*{'deletePlant'+{id_plante}}" tabindex="-1" aria-labelledby="updatePlante" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
+              <div class="modal fade" th:id="*{'deletePlant'+{id_plante}}" tabindex="-1" aria-labelledby="deletePlante" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
                           <h5 class="modal-title" id="deletePlantLabel">Supprimer une plante</h5>
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
@@ -91,14 +89,16 @@
                         
                         </div>
                         <div class="modal-footer">
+                          
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Retour</button>
+                          <form method="post">
                           <a th:href="@{/deletePlante/{id} (id=${plante.id_plante}) }" type="submit" class="btn btn-danger">Supprimer</a>
-                       
+                        </form>
                         </div>
-                         </form>
-                      </div>
+                       
                     </div>
                   </div>
+              </div>
 
   </div>
 </div>
