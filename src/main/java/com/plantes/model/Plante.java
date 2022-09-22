@@ -25,17 +25,16 @@ public class Plante {
 	private String liens;
 	@Column(name= "main_image")
 	private String mainImage;
-	@Column(name= "extra_image1")
-	private String extraImage1;
-	@Column(name= "extra_image2")
-	private String extraImage2;
-	@Column(name= "extra_image3")
-	private String extraImage3;
 	
 	
+	// Constructeurs
+	
+	public Plante() {
+	}
+
+
 	public Plante(Long id_plante, String nom, String origine, String dimension, String rusticite, String floraison,
-			String exposition, String terrain, String liens, String mainImage, String extraImage1, String extraImage2,
-			String extraImage3) {
+			String exposition, String terrain, String liens, String mainImage) {
 		this.id_plante = id_plante;
 		this.nom = nom;
 		this.origine = origine;
@@ -45,16 +44,11 @@ public class Plante {
 		this.exposition = exposition;
 		this.terrain = terrain;
 		this.liens = liens;
-		this.mainImage = mainImage;
-		this.extraImage1 = extraImage1;
-		this.extraImage2 = extraImage2;
-		this.extraImage3 = extraImage3;
+	
 	}
 
-
-	public Plante() {
-	}
-
+	
+	// Getters and setters
 
 	public Long getId_plante() {
 		return id_plante;
@@ -155,52 +149,33 @@ public class Plante {
 		this.mainImage = mainImage;
 	}
 
-
-	public String getExtraImage1() {
-		return extraImage1;
-	}
-
-
-	public void setExtraImage1(String extraImage1) {
-		this.extraImage1 = extraImage1;
-	}
-
-
-	public String getExtraImage2() {
-		return extraImage2;
-	}
-
-
-	public void setExtraImage2(String extraImage2) {
-		this.extraImage2 = extraImage2;
-	}
-
-
-	public String getExtraImage3() {
-		return extraImage3;
-	}
-
-
-	public void setExtraImage3(String extraImage3) {
-		this.extraImage3 = extraImage3;
-	}
-
+	// To String
 
 	@Override
 	public String toString() {
 		return "Plante [id_plante=" + id_plante + ", nom=" + nom + ", origine=" + origine + ", dimension=" + dimension
 				+ ", rusticite=" + rusticite + ", floraison=" + floraison + ", exposition=" + exposition + ", terrain="
-				+ terrain + ", liens=" + liens + ", mainImage=" + mainImage + ", extraImage1=" + extraImage1
-				+ ", extraImage2=" + extraImage2 + ", extraImage3=" + extraImage3 + "]";
+				+ terrain + ", liens=" + liens + ", mainImage=" + mainImage + "]";
 	}
+	
+	
+
+	
+	
+// transient to display maiImage in view
 	
 	
 	@Transient
 	public String getMainImagePath() {
-		if (id_plante == null || mainImage == null) return null;
+		if (id_plante == null || mainImage == null) {
+			return null;
+		}
 		
-		return "/plante-images"+ id_plante + "/" + mainImage;
+		return "/plante-images/" + id_plante + "/" + mainImage;
 	}
+	
+
+	
 	
 	
 	

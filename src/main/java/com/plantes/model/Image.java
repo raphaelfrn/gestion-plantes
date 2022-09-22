@@ -13,7 +13,7 @@ public class Image {
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id_image;
-	private String url;
+	private String image;
 		
 	@ManyToOne( cascade = CascadeType.ALL )
 	@JoinColumn(name="id_plante")
@@ -22,10 +22,10 @@ public class Image {
 	public Image() {
 	}
 
-	public Image(Long id_image, Plante plante, String url) {
+	public Image(Long id_image, String image, Plante plante) {
 		this.id_image = id_image;
+		this.image = image;
 		this.plante = plante;
-		this.url = url;
 	}
 
 	public Long getId_image() {
@@ -36,6 +36,14 @@ public class Image {
 		this.id_image = id_image;
 	}
 
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
 	public Plante getPlante() {
 		return plante;
 	}
@@ -44,16 +52,10 @@ public class Image {
 		this.plante = plante;
 	}
 
-	public String getUrl() {
-		return url;
-	}
-
-	public void setUrl(String url) {
-		this.url = url;
-	}
-
 	@Override
 	public String toString() {
-		return "Image [id_image=" + id_image + ", plante=" + plante + ", url=" + url + "]";
+		return "Image [id_image=" + id_image + ", image=" + image + ", plante=" + plante + "]";
 	}
+
+
 }

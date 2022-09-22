@@ -49,16 +49,11 @@
 			  
 			              <label for="inputTerrain" class="form-label">Terrain</label>
 			              <input type="text" id="inputTerrain" class="form-control" name="terrain" th:value="*{terrain}">
-
-                    <label for="inputCommentaires" class="form-label">Commentaires</label>
-			              <input type="text" id="inputLiens" class="form-control" name="commentaire">
 			  
 			              <label for="inputLiens" class="form-label">Liens</label>
 			              <input type="text" id="inputLiens" class="form-control" name="liens" th:value="*{liens}">
 			  
-			              <label for="inputImages" class="form-label">Images</label>
-			              <input class="form-control" type="file" id="inputImages" multiple>
-                    
+			          
                   
                   </div>
                   <div class="modal-footer">
@@ -110,17 +105,21 @@
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+       
       </div>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="/img/homepage/frangipanier1.jpg" class="d-block w-100" alt="...">
+          <img  th:src="@{${plante.mainImagePath}}" class="d-block w-100" alt="...">
+          
+        </div>
+        <!-- <div class="carousel-item">
+          <img th:src="@{${plante.extraImagePath1}}" class="d-block w-100" alt="...">
         </div>
         <div class="carousel-item">
-          <img src="/img/homepage/orchidee1.jpg" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="/img/homepage/fougere1.jpg" class="d-block w-100" alt="...">
-        </div>
+          <img th:src="@{${plante.extraImagePath2}}" class="d-block w-100" alt="...">
+        </div> -->
+     
+        
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -190,6 +189,9 @@
             <div class="tab-pane fade" id="images-tab-pane" role="tabpanel" aria-labelledby="images-tab" tabindex="0">
 
                 <img th:src="@{${plante.mainImagePath}}">
+              
+                
+                
 
             </div>
          

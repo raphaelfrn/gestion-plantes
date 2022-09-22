@@ -71,8 +71,7 @@ public class CollectionController {
 	
 	@PostMapping("/collection")
 	public String postCollection(@Validated Plante plante, BindingResult bindingResult, 
-			@RequestParam("primaryImage") MultipartFile mainMultipartFile,
-			@RequestParam("extraImage") MultipartFile[] extraMultipartFiles) throws IOException
+			@RequestParam("primaryImage") MultipartFile multipartFile) throws IOException
 			 {
 		
 		if(bindingResult.hasErrors()) {
@@ -81,50 +80,64 @@ public class CollectionController {
 			
 			} else {
 			
-					String mainImageName = StringUtils.cleanPath(mainMultipartFile.getOriginalFilename());
+					String mainImageName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
 					plante.setMainImage(mainImageName);
-					
-					int count = 0;
-					for(MultipartFile extraMultipart : extraMultipartFiles) {
-						String extraImageName = StringUtils.cleanPath(extraMultipart.getOriginalFilename());
-						if (count == 0) plante.setExtraImage1(extraImageName);
-						if (count == 1) plante.setExtraImage2(extraImageName);
-						if (count == 2) plante.setExtraImage3(extraImageName);
-						count ++;
-						}
-						
-					System.out.println(plante);
 						
 					Plante createdPlante =	planteRepository.save(plante);
-					String uploadDir = "./plante-images/" + createdPlante.getId_plante();
+					String uploadDir = "src/main/resources/static/plante-images/" + createdPlante.getId_plante();
 					
-					FileUploadUtil.saveFile(uploadDir, mainMultipartFile, mainImageName);
+					FileUploadUtil.saveFile(uploadDir, multipartFile, mainImageName);
 					
-					for(MultipartFile extraMultipart : extraMultipartFiles) {
-						String fileName = StringUtils.cleanPath(extraMultipart.getOriginalFilename());
-						
-						FileUploadUtil.saveFile(uploadDir, extraMultipart, fileName);
-						}
+					
 		
 					}
 		
 		return "redirect:/collection";
 	}
 	
+	
+// Multipart upload 	
+	
 //	@PostMapping("/collection")
-//	public RedirectView saveImage(Image image, @RequestParam("image") MultipartFile multipartFile) throws IOException{
+//	public String postCollection(@Validated Plante plante, BindingResult bindingResult, 
+//			@RequestParam("primaryImage") MultipartFile mainMultipartFile,
+//			@RequestParam("extraImage") MultipartFile[] extraMultipartFiles) throws IOException
+//			 {
 //		
-//		 String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-//		 image.setUrl(fileName);
-//	         
-//		 Image savedImage = imageRepository.save(image);
-//	 
-//	        String uploadDir = "/plante-images/" + savedImage.getId_image();
-//	 
-//	        FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+//		if(bindingResult.hasErrors()) {
+//			System.out.println(bindingResult.getFieldError());
+//			return "pages/collection";
+//			
+//			} else {
+//			
+//					String mainImageName = StringUtils.cleanPath(mainMultipartFile.getOriginalFilename());
+//					plante.setMainImage(mainImageName);
+//					
+//					int count = 0;
+//					for(MultipartFile extraMultipart : extraMultipartFiles) {
+//						String extraImageName = StringUtils.cleanPath(extraMultipart.getOriginalFilename());
+//						if (count == 0) plante.setExtraImage1(extraImageName);
+//						if (count == 1) plante.setExtraImage2(extraImageName);
+//						if (count == 2) plante.setExtraImage3(extraImageName);
+//						count ++;
+//						}
+//						
+//					System.out.println(plante);
+//						
+//					Plante createdPlante =	planteRepository.save(plante);
+//					String uploadDir = "src/main/resources/static/plante-images/" + createdPlante.getId_plante();
+//					
+//					FileUploadUtil.saveFile(uploadDir, mainMultipartFile, mainImageName);
+//					
+//					for(MultipartFile extraMultipart : extraMultipartFiles) {
+//						String fileName = StringUtils.cleanPath(extraMultipart.getOriginalFilename());
+//						
+//						FileUploadUtil.saveFile(uploadDir, extraMultipart, fileName);
+//						}
 //		
-//		return new RedirectView("/collection", true);
+//					}
 //		
+//		return "redirect:/collection";
 //	}
 	
 
