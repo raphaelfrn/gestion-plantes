@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 @Entity
 public class Image {
@@ -55,6 +56,15 @@ public class Image {
 	@Override
 	public String toString() {
 		return "Image [id_image=" + id_image + ", image=" + image + ", plante=" + plante + "]";
+	}
+
+	@Transient
+	public String getImagePath() {
+		if (plante.getId() == null || image == null) {
+			return null;
+		}
+		
+		return "/plante-images/" + plante.getId() + "/" + image;
 	}
 
 

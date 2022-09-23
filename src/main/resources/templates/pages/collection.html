@@ -68,6 +68,9 @@
 			  
 			              <label for="inputTerrain" class="form-label">Terrain</label>
 			              <input type="text" id="inputTerrain" class="form-control" name="terrain">
+
+                    <label for="inputComm" class="form-label">Commentaire</label>
+			              <input type="text" id="inputComm" class="form-control" name="commentaire">
 			  
 			              <label for="inputLiens" class="form-label">Liens</label>
 			              <input type="text" id="inputLiens" class="form-control" name="liens">
@@ -110,12 +113,12 @@
             </thead>
             <tbody>
               <tr scope="row" class="align-middle" th:each="plante:${listePlantes}" >
-                <td th:text="${plante.id_plante}"></td>
+                <td th:text="${plante.id}"></td>
                 <td th:text="${plante.nom}"></td>
                 <td th:text="${plante.origine}"></td>
                 <td th:text="${plante.dimension}"></td>
                 <td>
-                    <a type="button" class="btn btn-light btn-lg" th:href="@{/details-plante/{id}  (id=${plante.id_plante}) }">Voir</a>
+                    <a type="button" class="btn btn-light btn-lg" th:href="@{/details-plante/{id}  (id=${plante.id}) }">Voir</a>
                  
                 </td>
               </tr>

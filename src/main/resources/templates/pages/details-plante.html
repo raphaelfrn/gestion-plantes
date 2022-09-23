@@ -2,211 +2,166 @@
 
 <div class="container-details" th:object="${plante}">
 
-<div class="row">
-    <div class="container col-md-8"> 
+  <div class="row mt-5">
+    <div class="col-md-6 ms-2">
       <h2 class="ms-4" th:text="*{nom}"></h2>
-    </div>
-
-  <div class="container col-md-3 me-5 d-flex justify-content-end">
-   
-    <a th:href="@{/collection}" > <button class="btn btn-secondary"><i class="fa-solid fa-arrow-left"></i></button></a> 
-
-    <!-- Bouton modifier modal-->
-    <form><button type="button" class="btn btn-warning" data-bs-toggle="modal"  th:attr="data-bs-target='#updatePlant'+*{id_plante}"><i class="fa-regular fa-pen-to-square"></i></button></form>
-
- <!--Modal modifier une plante-->
-            <!-- Modal -->
-            <div class="modal fade" th:id="*{'updatePlant'+{id_plante}}" tabindex="-1" aria-labelledby="updatePlante" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="updatePlantLabel">Modifier une plante</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <!--Formulaire d'ajout de plante-->
-                    <form method="post" th:action="@{/details-plante/{id}  (id=${plante.id_plante}) }">
-
-                      <input type="hidden" name="id_plante" th:value="*{id_plante}">
-
-		                  <label for="inputNom" class="form-label">Nom</label>
-			              <input type="text" id="inputNom" class="form-control" name="nom" th:value="*{nom}">
-			  
-			              <label for="inputOrigine" class="form-label">Origine</label>        
-			              <input type="text" id="inputOrigine" class="form-control" name="origine" th:value="*{origine}">
-			  
-			              <label for="inputDimension" class="form-label">Dimension</label>
-			              <input type="text" id="inputDimension" class="form-control" name="dimension" th:value="*{dimension}">
-			  
-			              <label for="inputRusticite" class="form-label">Rusticité</label>
-			              <input type="text" id="inputRusticite" class="form-control" name="rusticite" th:value="*{rusticite}">
-			  
-			              <label for="inputFloraison" class="form-label">Floraison</label>
-			              <input type="text" id="inputFloraison" class="form-control" name="floraison" th:value="*{floraison}">
-			  
-			              <label for="inputExposition" class="form-label">Taux d'exposition</label>
-			              <input type="text" id="inputExposition" class="form-control" name="exposition" th:value="*{exposition}">
-			  
-			              <label for="inputTerrain" class="form-label">Terrain</label>
-			              <input type="text" id="inputTerrain" class="form-control" name="terrain" th:value="*{terrain}">
-			  
-			              <label for="inputLiens" class="form-label">Liens</label>
-			              <input type="text" id="inputLiens" class="form-control" name="liens" th:value="*{liens}">
-			  
-			          
-                  
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Retour</button>
-                    <button type="submit" class="btn btn-warning">Modifier</button>
-                 
-                  </div>
-                   </form>
-                </div>
-              </div>
-            </div>
-
-
-   <form><button type="button" class="btn btn-danger" data-bs-toggle="modal" th:attr="data-bs-target='#deletePlant'+*{id_plante}" ><i class="fa-solid fa-trash"></i></button></form> 
-
-                   <!-- Modal  Suppression-->
-              <div class="modal fade" th:id="*{'deletePlant'+{id_plante}}" tabindex="-1" aria-labelledby="deletePlante" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                          <h5 class="modal-title" id="deletePlantLabel">Supprimer une plante</h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                          
-                          <p>Etes-vous sûr de vouloir supprimer </p>
-                          <p th:text="*{nom}"></p>
-                        
-                        </div>
-                        <div class="modal-footer">
-                          
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Retour</button>
-                          <form method="post">
-                          <a th:href="@{/deletePlante/{id} (id=${plante.id_plante}) }" type="submit" class="btn btn-danger">Supprimer</a>
-                        </form>
-                        </div>
-                       
-                    </div>
-                  </div>
-              </div>
-
-  </div>
-</div>
-
-<div class="row mt-5">
-  <div class="col-md-6 ms-2">
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-       
-      </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img  th:src="@{${plante.mainImagePath}}" class="d-block w-100" alt="...">
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img  th:src="@{${plante.mainImagePath}}" class="d-block w-100" alt="...">
+            
+          </div>
+          <!-- <div class="carousel-item">
+            <img th:src="@{${plante.extraImagePath1}}" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img th:src="@{${plante.extraImagePath2}}" class="d-block w-100" alt="...">
+          </div> -->
+      
           
         </div>
-        <!-- <div class="carousel-item">
-          <img th:src="@{${plante.extraImagePath1}}" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img th:src="@{${plante.extraImagePath2}}" class="d-block w-100" alt="...">
-        </div> -->
-     
-        
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
     </div>
-  </div>
-  <div class="col-md-5 me-2">
-    <div class="container onglets">
+    <div class="col-md-5 me-2">
+      <div class="d-flex justify-content-end container-buttons">
+      <a th:href="@{/collection}" > <button class="btn btn-secondary"><i class="fa-solid fa-arrow-left"></i></button></a>
+     
+      <a th:href="@{/gestion-images/{id} (id=${plante.id})}" ><button class="btn btn-warning"><i class="fa-solid fa-image"></i></button></a>  
 
-        <!-- la liste d'onglet -->
+      <!-- Bouton modifier modal-->
+      <form><button type="button" class="btn btn-warning" data-bs-toggle="modal"  th:attr="data-bs-target='#updatePlant'+*{id}"><i class="fa-regular fa-pen-to-square"></i></button></form>
 
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item" role="presentation">
-              <button class="nav-link active" id="origine-tab" data-bs-toggle="tab" data-bs-target="#origine-tab-pane" type="button" role="tab" aria-controls="origine-tab-pane" aria-selected="true">Informations</button>
-            </li>
-      
-        
-              <li class="nav-item" role="presentation">
-                <button class="nav-link" id="comms-tab" data-bs-toggle="tab" data-bs-target="#comms-tab-pane" type="button" role="tab" aria-controls="comms-tab-pane" aria-selected="false" >Commentaires</button>
-              </li>
+  <!--Modal modifier une plante-->
+              <!-- Modal -->
+              <div class="modal fade" th:id="*{'updatePlant'+{id}}" tabindex="-1" aria-labelledby="updatePlante" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="updatePlantLabel">Modifier une plante</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <!--Formulaire d'ajout de plante-->
+                      <form method="post" th:action="@{/details-plante/{id}  (id=${plante.id}) }">
 
-              <li class="nav-item" role="presentation">
-                <button class="nav-link" id="images-tab" data-bs-toggle="tab" data-bs-target="#images-tab-pane" type="button" role="tab" aria-controls="image-tab-pane" aria-selected="false" >Images</button>
-              </li>
-             
-          </ul>
+                        <input type="hidden" name="id" th:value="*{id}">
 
+                        <label for="inputNom" class="form-label">Nom</label>
+                      <input type="text" id="inputNom" class="form-control" name="nom" th:value="*{nom}">
+          
+                      <label for="inputOrigine" class="form-label">Origine</label>        
+                      <input type="text" id="inputOrigine" class="form-control" name="origine" th:value="*{origine}">
+          
+                      <label for="inputDimension" class="form-label">Dimension</label>
+                      <input type="text" id="inputDimension" class="form-control" name="dimension" th:value="*{dimension}">
+          
+                      <label for="inputRusticite" class="form-label">Rusticité</label>
+                      <input type="text" id="inputRusticite" class="form-control" name="rusticite" th:value="*{rusticite}">
+          
+                      <label for="inputFloraison" class="form-label">Floraison</label>
+                      <input type="text" id="inputFloraison" class="form-control" name="floraison" th:value="*{floraison}">
+          
+                      <label for="inputExposition" class="form-label">Taux d'exposition</label>
+                      <input type="text" id="inputExposition" class="form-control" name="exposition" th:value="*{exposition}">
+          
+                      <label for="inputTerrain" class="form-label">Terrain</label>
+                      <input type="text" id="inputTerrain" class="form-control" name="terrain" th:value="*{terrain}">
 
-          <!-- le contenu des onglets -->
-
-          <div class="tab-content border-content overflow-auto" id="myTabContent">
-            <div class="tab-pane fade show active" id="origine-tab-pane" role="tabpanel" aria-labelledby="origine-tab" tabindex="0">
-
-              <div class="container">
-                  <span><u>Origine</u> : </span> 
-                  <span th:text="*{origine}"></span>
-                  <hr>
-                  <span><u>Dimension</u> : </span> 
-                  <span th:text="*{dimension}"></span>
-                  <hr>
-                  <span><u>Rusticité</u> : </span> 
-                  <span th:text="*{rusticite}"></span>
-                  <hr>
-                  <span><u>Floraison</u> : </span> 
-                  <span th:text="*{floraison}"></span>
-                  <hr>
-                  <span><u>Exposition</u> : </span> 
-                  <span th:text="*{exposition}"></span>
-                  <hr>
-                  <span><u>Terrain</u> : </span> 
-                  <span th:text="*{terrain}"></span>
-                  <hr>
-                  <span><u>Liens</u> : </span> 
-                  <span th:text="*{liens}"></span>
+                      <label for="inputComm" class="form-label">Commentaire</label>
+			              <input type="text" id="inputComm" class="form-control" name="commentaire" th:value="*{commentaire}">
+          
+                      <label for="inputLiens" class="form-label">Liens</label>
+                      <input type="text" id="inputLiens" class="form-control" name="liens" th:value="*{liens}">
+          
                   
+                    
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Retour</button>
+                      <button type="submit" class="btn btn-warning">Modifier</button>
+                  
+                    </div>
+                    </form>
+                  </div>
+                </div>
               </div>
 
 
-            </div>
-     
-            <div class="tab-pane fade" id="comms-tab-pane" role="tabpanel" aria-labelledby="comms-tab" tabindex="0">Commentaires</div>
-            <div class="tab-pane fade" id="images-tab-pane" role="tabpanel" aria-labelledby="images-tab" tabindex="0">
+    <form><button type="button" class="btn btn-danger" data-bs-toggle="modal" th:attr="data-bs-target='#deletePlant'+*{id}" ><i class="fa-solid fa-trash"></i></button></form> 
 
-                <img th:src="@{${plante.mainImagePath}}">
-              
-                
-                
+                    <!-- Modal  Suppression-->
+                <div class="modal fade" th:id="*{'deletePlant'+{id}}" tabindex="-1" aria-labelledby="deletePlante" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="deletePlantLabel">Supprimer une plante</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            
+                            <p>Etes-vous sûr de vouloir supprimer </p>
+                            <p th:text="*{nom}"></p>
+                          
+                          </div>
+                          <div class="modal-footer">
+                            
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Retour</button>
+                            <form method="post">
+                            <a th:href="@{/deletePlante/{id} (id=${plante.id}) }" type="submit" class="btn btn-danger">Supprimer</a>
+                          </form>
+                          </div>
+                        
+                      </div>
+                    </div>
+                </div>
+              </div>
+      <div class="container onglets">
 
-            </div>
-         
-          </div>
+                <div class="container">
+                    <span><u>Origine</u> : </span> 
+                    <span th:text="*{origine}"></span>
+                    <hr>
+                    <span><u>Dimension</u> : </span> 
+                    <span th:text="*{dimension}"></span>
+                    <hr>
+                    <span><u>Rusticité</u> : </span> 
+                    <span th:text="*{rusticite}"></span>
+                    <hr>
+                    <span><u>Floraison</u> : </span> 
+                    <span th:text="*{floraison}"></span>
+                    <hr>
+                    <span><u>Exposition</u> : </span> 
+                    <span th:text="*{exposition}"></span>
+                    <hr>
+                    <span><u>Terrain</u> : </span> 
+                    <span th:text="*{terrain}"></span>
+                    <hr>
+                    <span><u>Liens</u> : </span> 
+                    <span th:text="*{liens}"></span>
+                    
+                </div>
 
-
+        </div>
+      </div>
     </div>
-  </div>
- 
+  
 
 
-</div>
-
-
-
+  </div>  
 
 
 </div>

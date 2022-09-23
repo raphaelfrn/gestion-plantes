@@ -84,7 +84,7 @@ public class CollectionController {
 					plante.setMainImage(mainImageName);
 						
 					Plante createdPlante =	planteRepository.save(plante);
-					String uploadDir = "src/main/resources/static/plante-images/" + createdPlante.getId_plante();
+					String uploadDir = "src/main/resources/static/plante-images/" + createdPlante.getId();
 					
 					FileUploadUtil.saveFile(uploadDir, multipartFile, mainImageName);
 					

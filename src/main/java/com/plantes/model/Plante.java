@@ -1,10 +1,14 @@
 package com.plantes.model;
 
+import java.util.Collection;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
 
@@ -12,8 +16,8 @@ import javax.persistence.Transient;
 @Entity
 public class Plante {
 	
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id_plante;
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name="id_plante")
+	private Long id;
 	
 	private String nom;
 	private String origine;
@@ -22,10 +26,13 @@ public class Plante {
 	private String floraison;
 	private String exposition;
 	private String terrain;
+	private String commentaire;
 	private String liens;
 	@Column(name= "main_image")
 	private String mainImage;
 	
+	@OneToMany(mappedBy="image", cascade = CascadeType.ALL)
+	private Collection<Image> image;
 	
 	// Constructeurs
 	
@@ -33,9 +40,9 @@ public class Plante {
 	}
 
 
-	public Plante(Long id_plante, String nom, String origine, String dimension, String rusticite, String floraison,
-			String exposition, String terrain, String liens, String mainImage) {
-		this.id_plante = id_plante;
+	public Plante(Long id, String nom, String origine, String dimension, String rusticite, String floraison,
+			String exposition, String terrain,String commentaire, String liens, String mainImage) {
+		this.id = id;
 		this.nom = nom;
 		this.origine = origine;
 		this.dimension = dimension;
@@ -43,20 +50,22 @@ public class Plante {
 		this.floraison = floraison;
 		this.exposition = exposition;
 		this.terrain = terrain;
+		this.commentaire = commentaire;
 		this.liens = liens;
+		this.mainImage = mainImage;
 	
 	}
 
 	
 	// Getters and setters
 
-	public Long getId_plante() {
-		return id_plante;
+	public Long getId() {
+		return id;
 	}
 
 
-	public void setId_plante(Long id_plante) {
-		this.id_plante = id_plante;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 
@@ -130,6 +139,16 @@ public class Plante {
 	}
 
 
+	public String getCommentaire() {
+		return commentaire;
+	}
+
+
+	public void setCommentaire(String commentaire) {
+		this.commentaire = commentaire;
+	}
+
+
 	public String getLiens() {
 		return liens;
 	}
@@ -150,28 +169,23 @@ public class Plante {
 	}
 
 	// To String
-
+	
 	@Override
 	public String toString() {
-		return "Plante [id_plante=" + id_plante + ", nom=" + nom + ", origine=" + origine + ", dimension=" + dimension
+		return "Plante [id_plante=" + id + ", nom=" + nom + ", origine=" + origine + ", dimension=" + dimension
 				+ ", rusticite=" + rusticite + ", floraison=" + floraison + ", exposition=" + exposition + ", terrain="
-				+ terrain + ", liens=" + liens + ", mainImage=" + mainImage + "]";
+				+ terrain + ", commentaire=" + commentaire + ", liens=" + liens + ", mainImage=" + mainImage + "]";
 	}
-	
-	
 
-	
-	
 // transient to display maiImage in view
-	
-	
+
 	@Transient
 	public String getMainImagePath() {
-		if (id_plante == null || mainImage == null) {
+		if (id == null || mainImage == null) {
 			return null;
 		}
 		
-		return "/plante-images/" + id_plante + "/" + mainImage;
+		return "/plante-images/" + id + "/" + mainImage;
 	}
 	
 

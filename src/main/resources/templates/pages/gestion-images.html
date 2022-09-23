@@ -1,0 +1,87 @@
+<div th:replace="fragments/header::header"></div>
+<div class="container-gestion">
+
+
+
+    <div class="container">
+        <h2>Gestion des images</h2> 
+
+
+        <form method="post" enctype="multipart/form-data">
+            <label for="inputImage" class="form-label">Ajouter une image</label>
+            <input class="form-control" type="file" id="inputImage" name="inputImage" accept="image/png, image/jpeg">
+            <button type="submit" class="btn btn-warning">Ajouter</button>
+
+
+
+
+
+
+
+  </form>    
+    <div class="table-responsive overflow-auto">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Image</th>
+                    <th scope="col">Supprimer</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr scope="row" class="align-middle" th:each="image : ${listeImages}">
+                    <td>  <img class= "img-thumbnail w-25" th:src="@{${image.ImagePath}}"> </td>
+                    <td> <button type="button" class="btn btn-danger" data-bs-toggle="modal"	th:attr="data-bs-target='#deleteImage'+*{image.id_image}"><i class="fa-solid fa-trash"></i></button></td>
+
+                              <!--  Modal Delete Image -->
+                              <div class="modal fade" th:id="*{'deleteImage'+{image.id_image}}" tabindex="-1" aria-labelledby="deleteModal" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Supprimer une image</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                                </div> 
+                                                <div class="modal-body">
+                                                <p>Etes vous sur de vouloir supprimer cette image ?</p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <a th:href="@{/deleteImage/{id} (id=${image.id_image}) }"><button type="button" class="btn btn-primary">Supprimer</button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                </tr>
+            </tbody>
+
+        </table>
+    </div> 
+    
+       
+
+      
+
+
+
+             
+            
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

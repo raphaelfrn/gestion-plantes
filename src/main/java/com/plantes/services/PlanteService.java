@@ -21,10 +21,11 @@ public class PlanteService {
 		return planteRepository.findAll();
 	}
 	
-	// find by Id
+	// find Optional by Id
 	public Optional<Plante> findById(Long id) {
 		return planteRepository.findById(id);
 	}
+		
 	
 	
 	// save
