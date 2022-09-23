@@ -5,3 +5,11 @@
     background-color: #CAD2C5;
 }
 
+::-webkit-scrollbar {
+    width: 11px;
+  }
+  ::-webkit-scrollbar-thumb {
+      box-shadow: inset 0 0 1px grey;
+      background: #52796F;
+      border-radius: 7px;
+  }

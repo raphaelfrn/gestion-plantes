@@ -1,6 +1,5 @@
 package com.plantes.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,7 +15,7 @@ public class Image {
 	private Long id_image;
 	private String image;
 		
-	@ManyToOne( cascade = CascadeType.ALL )
+	@ManyToOne
 	@JoinColumn(name="id_plante")
 	private Plante plante;
 	

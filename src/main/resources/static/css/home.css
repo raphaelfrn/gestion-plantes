@@ -97,11 +97,18 @@ header .nav-link:focus {
 }
 
 .galerie{
-    
+    height:100%;
     background-image: url('/img/homepage/fougere5.jpg');
     background-size: cover;
-    background-position: top;
+    background-position: center;
     background-repeat: no-repeat;
     
+}
+
+.stats{
+    height:100%;
+    background-image: url('/img/homepage/frangipanier2-paysage.jpg');
+    background-size:cover;
+
 }
 

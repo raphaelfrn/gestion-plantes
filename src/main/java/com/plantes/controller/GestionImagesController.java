@@ -61,7 +61,7 @@ public class GestionImagesController {
 			imageRepository.delete(ImageDelete.get());
 		}
 		
-		return "redirect:/gestion-images";
+		return "redirect:/gestion-images/{id}";
 	}
 	
 	
