@@ -4,24 +4,27 @@
 
 
     <div class="container">
-        <h2>Gestion des images</h2> 
-        <a th:href="@{/collection}"> <button class="btn btn-secondary"><i class="fa-solid fa-arrow-left"></i></button></a>
 
-
-        <form method="post" enctype="multipart/form-data">
-            <label for="inputImage" class="form-label">Ajouter une image</label>
-            <input class="form-control" type="file" id="inputImage" name="inputImage" accept="image/png, image/jpeg">
-            <button type="submit" class="btn btn-warning">Ajouter</button>
-
-
-
-
-
-
-
-  </form>    
+        <div class="row pt-2">
+            <div class="col-6">
+            <h2>Gestion des images</h2> 
+            </div>
+            <div class="col-6 d-flex justify-content-end">
+            <a th:href="@{/collection}"> <button class="btn btn-secondary"><i class="fa-solid fa-arrow-left"></i></button></a>
+            </div>
+        </div>
+        
+        <div class="container d-flex text-center justify-content-center mt-2">
+                    <form method="post" enctype="multipart/form-data">
+                        <label for="inputImage" class="form-label">Ajouter une image</label>
+                        <input class="form-control" type="file" id="inputImage" name="inputImage" accept="image/png, image/jpeg" >
+                        <button type="submit" class="btn btn-warning m-2">Ajouter</button>
+                    </form>    
+                </div>
+                <hr>
     <div class="table-responsive overflow-auto">
         <table class="table table-striped">
+            <h3>Liste d'images</h3>
             <thead>
                 <tr>
                     <th scope="col">Image</th>
@@ -47,8 +50,8 @@
                                                 <p>Etes vous sur de vouloir supprimer cette image ?</p>
                                                 </div>
                                                 <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <a th:href="@{/deleteImage/{id} (id=${image.id_image}) }"><button type="button" class="btn btn-primary">Supprimer</button></a>
+                                                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Retour</button>
+                                                <a th:href="@{/deleteImage/{id} (id=${image.id_image}) }"><button type="button" class="btn btn-danger">Supprimer</button></a>
                                         </div>
                                     </div>
                                 </div>
@@ -58,31 +61,7 @@
 
         </table>
     </div> 
-    
-       
-
-      
-
-
-
-             
-            
-
-
 
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </div>

@@ -34,7 +34,16 @@ public class ImageService {
 		return imageRepository.findById(idImage);
 	}
 	
-
+	// Find all
 	
+	public List<Image> findAll(){
+		return imageRepository.findAll();
+		}
+
+	// Random List pour galerie
+	
+	public List<Image> randomList(){
+		return imageRepository.randomList();
+	}
 	
 }

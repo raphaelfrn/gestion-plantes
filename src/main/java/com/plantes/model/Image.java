@@ -66,5 +66,6 @@ public class Image {
 		return "/plante-images/" + plante.getId() + "/" + image;
 	}
 
+	
 
 }

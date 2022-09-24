@@ -7,56 +7,107 @@
 }
 
 
-.onglets{
-  height:70vh;
+.btn-secondary{
+  background-color: #52796F !important;
+  color:#CAD2C5;
 }
 
-/* couleur des onglets */
+.btn-warning{
+  background-color: #84A98C !important;
+  border-color: #84A98C !important;
+ color:white;
+}
 
-.nav-tabs .nav-item .nav-link {
-    background-color: #354F52;
-    color: #FFF;
-  }
+.btn-warning:hover{
+  background-color: #84A98C !important;
+  border-color: #84A98C !important;
+  color:#2F3E46;
+}
 
-  /* onglet actif */
-  
-  .nav-tabs .nav-item .nav-link.active {
-    color:#FFF;
-    background-color: #2F3E46;
-    border-color:#354F52;
-  }
+.btn-warning:focus{
+  background-color: #84A98C !important;
+  border-color: #84A98C !important;
+  color:#2F3E46;
+  box-shadow:none;
+}
 
-  .nav-tabs .nav-item .nav-link:hover {
-    color: #fff !important;
-    border-color:#84A98C;
-    
-  }
+.fa-pen-to-square, .fa-image, .fa-trash{
+  color: white;
+}
 
-/* bordure du content */
 
-  .tab-content {
-    border: 0.5px solid #354F52;
-    height:35vh;
-  }
 
-  
-  
-  /* background du content */
 
-   .tab-content .tab-pane {
-    padding-top:1.25rem;
-    background-color: #84A98C;
-    background-size:100%;
-    color: #2F3E46;
-    min-height: 200px;
-    height: auto;
-    padding-bottom: 1.2rem;
-  }  
+  /* SLIDER */
 
-  /* Carousel images */
-  #carouselExampleIndicators .carousel-item img {
-    object-fit: cover;
-    object-position: center;
+  .slider {
     height: 40vh;
-    overflow: hidden;
+    width:auto;
+    margin: 0 auto;
+    position: relative;
   }
+  
+  .slide img {
+    transition: all .5s;
+    position:absolute;
+    object-fit: cover;
+    height:40vh;
+    width:100%;
+    opacity: 0;
+  }
+  
+  .slide img:first-child{
+    opacity: 1;
+  }
+  
+  .show {
+    opacity: 1;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: center; 
+  }
+  
+  .btn-left, .btn-right {
+    position: absolute;
+    cursor: pointer;
+    top:50%;
+    transform:  translateY(-50%);
+  }
+  
+  .btn-left {
+    left: 2%;
+  }
+  
+  .btn-right {
+    right: 2%;
+  }
+  
+  .btn-left:active, .btn-right:active {
+    transform: translateY(-45%) scale(0.97);
+  }
+  
+  .dots-list {
+    position: absolute;
+    bottom: -10%;
+    left:50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .dots-item {
+    cursor: pointer;
+    width: 10px;
+    height: 10px;
+    margin: 0 3px;
+    border-radius: 50%;
+    border: 2px solid #000;
+  }
+  
+  .dots-item.active {
+    background: #52796F;
+  }
+

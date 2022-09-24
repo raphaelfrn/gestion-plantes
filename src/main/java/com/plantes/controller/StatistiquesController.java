@@ -9,37 +9,35 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.plantes.model.Image;
+import com.plantes.model.Plante;
 import com.plantes.services.ImageService;
 import com.plantes.services.PlanteService;
 
 @Controller
-public class GalerieController {
+public class StatistiquesController {
 	
 	@Autowired
 	ImageService imageService;
 	@Autowired
 	PlanteService planteService;
 
-	@GetMapping("/galerie")
-	public String getGalerie(Model model) {
+	@GetMapping("/statistiques")
+	public String getStats(Model model) {
 		
+		List<Plante> listePlantes = planteService.findAllPlantes();
+		List<Image> listeImages = imageService.findAll();
 		
-		List<Image> listeRandom1 = imageService.randomList();
-		List<Image> listeRandom2 = imageService.randomList();
-		List<Image> listeRandom3 = imageService.randomList();
+		model.addAttribute("listePlantes", listePlantes);
+		model.addAttribute("listeImages", listeImages);
 		
-		
-		model.addAttribute("listeRandom1", listeRandom1);
-		model.addAttribute("listeRandom2", listeRandom2);
-		model.addAttribute("listeRandom3", listeRandom3);
-		
-		return "pages/galerie";
+		return "pages/statistiques";
 	}
 	
 	
-	
-	@PostMapping("/galerie")
-	public String postGalerie() {
-		return "pages/galerie";
+	@PostMapping("/statistiques")
+	public String postStats() {
+		return "pages/statistiques";
 	}
+	
+	
 }

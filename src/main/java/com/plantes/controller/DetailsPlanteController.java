@@ -1,23 +1,21 @@
 package com.plantes.controller;
 
-import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
-import com.plantes.FileUploadUtil;
+import com.plantes.model.Image;
 import com.plantes.model.Plante;
 import com.plantes.repository.ImageRepository;
 import com.plantes.repository.PlanteRepository;
+import com.plantes.services.ImageService;
 import com.plantes.services.PlanteService;
 
 @Controller
@@ -27,7 +25,8 @@ public class DetailsPlanteController {
 	PlanteService planteService;
 	@Autowired
 	PlanteRepository planteRepository;
-	
+	@Autowired
+	ImageService imageService;
 	@Autowired
 	ImageRepository imageRepository;
 	
@@ -37,34 +36,29 @@ public class DetailsPlanteController {
 	public String getDetails(@PathVariable(value="id") Long idPlante, Model model) {
 		
 		Optional<Plante> plante = planteService.findById(idPlante);
+		List<Image> listeImages = imageService.findByPlante(plante);
 		
 		if(plante.isPresent()) {
 			model.addAttribute("plante", plante.get());
+			model.addAttribute("listeImages", listeImages);
 		}
 		
 		return "pages/details-plante";		
 	}
 	
-	// Update a plant + upload main Image
+	// Update a plant 
 	
 	@PostMapping("/details-plante/{id}")
-	public String postDetails(@PathVariable(value="id") Long idPlante, Model model, @Validated Plante plante,
-			@RequestParam("primaryImage") MultipartFile multipartFile) throws IOException {
-		
+	public String postDetails(@PathVariable(value="id") Long idPlante, Model model, @Validated Plante plante) {
+					
 		Optional<Plante> planteUpdate = planteService.findById(idPlante);
 		if(planteUpdate.isPresent()) {
 			
-			String mainImageName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-			plante.setMainImage(mainImageName);
+			planteService.save(plante);
 			
-			
-			Plante updatedPlante = planteService.save(plante);
-			String uploadDir = "src/main/resources/static/plante-images/" + updatedPlante.getId();
-			
-			FileUploadUtil.saveFile(uploadDir, multipartFile, mainImageName);
 		}
 		
-		return "pages/details-plante";
+		return "redirect:/details-plante/{id}";
 	}
 	
 	// Delete plante
