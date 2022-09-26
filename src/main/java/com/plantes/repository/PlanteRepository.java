@@ -24,7 +24,8 @@ public interface PlanteRepository extends JpaRepository<Plante, Long> {
 			+ "OR p.terrain LIKE %:keyword%", nativeQuery=true)
 	List<Plante> findByKeyword(@Param("keyword") String keyword);
 
-	
+	@Query(value="SELECT avg(rusticite) FROM Plante", nativeQuery=true)
+	public Double moyenneRusticite();
 	
 	
 	

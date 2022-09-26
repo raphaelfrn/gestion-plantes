@@ -46,4 +46,10 @@ public class ImageService {
 		return imageRepository.randomList();
 	}
 	
+	// count image
+	
+	public Long getImageCount() {
+		return imageRepository.count();
+	}
+	
 }

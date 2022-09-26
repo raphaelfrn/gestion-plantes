@@ -1,0 +1,45 @@
+.container-stats{
+	height:100vh;
+    padding-top:7%;
+    color:#2F3E46;
+    background-color: #CAD2C5;
+    overflow: hidden;
+
+}
+
+
+.bg-custom{
+    background-color: #2F3E46;
+    color:#CAD2C5;
+
+}
+
+.bg-custom p{
+    font-size:36px;
+}
+
+.stats-landing{
+   
+        background-image: url('/img/homepage/frangipanier3-paysage.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height:18%;
+        
+    
+}
+
+.stats-landing h2{
+    color:#2F3E46;
+    
+}
+
+.bg-custom-1{
+    background-color: #84A98C;
+    color:#354F52;
+
+}
+
+.bg-custom-1 p{
+    font-size:36px;
+}

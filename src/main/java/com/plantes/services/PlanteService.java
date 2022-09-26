@@ -49,9 +49,20 @@ public class PlanteService {
 	}
 	
 	
-	
 	// get plante by keyword
 	public List<Plante> findByKeyword(String keyword){
 		return planteRepository.findByKeyword(keyword) ;
+	}
+	
+	// Plant count
+	
+	public Long getPlanteCount() {
+		return planteRepository.count();
+	}
+	
+	// Moyenne rusticite
+	
+	public Double moyenneRusticite() {
+		return planteRepository.moyenneRusticite();
 	}
 }

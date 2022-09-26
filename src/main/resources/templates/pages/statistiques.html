@@ -1,1 +1,111 @@
 <div th:replace="fragments/header::header"></div>
+
+<div class="container-stats">
+
+    
+   
+    <div class="mt-5 stats-landing d-flex align-items-center justify-content-center "><h2>Statistiques</h2></div>
+    
+
+
+    <div class="row mt-5">
+        <div class="col-md-3">
+            <div class="container">
+                <div class="card bg-custom w-50 text-center mx-auto">
+                    <div class="card-body">
+                        <h5 class="card-title">Nombre de plantes dans la collection</h5>
+                        <p class="card-text" th:text="${countPlantes}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="container">
+                <div class="card bg-custom-1 w-50  text-center mx-auto">
+                    <div class="card-body">
+                        <h5 class="card-title">Nombre de plantes dans la wishlist</h5>
+                        <p class="card-text">0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="container">
+                <div class="card bg-custom w-50  text-center mx-auto">
+                    <div class="card-body">
+                        <h5 class="card-title">Nombre d'images dans la collection</h5>
+                        <p class="card-text" th:text="${countImages}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="container">
+                <div class="card bg-custom-1 w-50 text-center mx-auto">
+                    <div class="card-body">
+                        <h5 class="card-title">Degré de rusticité moyen</h5>
+                        <p class="card-text" th:text="${avgRusticite}+'°'"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-3">
+            <div class="container">
+                <div class="card bg-custom w-50 text-center mx-auto">
+                    <div class="card-body">
+                        <h5 class="card-title">Statistiques</h5>
+                        <p class="card-text">null</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="container">
+                <div class="card bg-custom-1 w-50  text-center mx-auto">
+                    <div class="card-body">
+                        <h5 class="card-title">Statistiques</h5>
+                        <p class="card-text">null</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="container">
+                <div class="card bg-custom w-50  text-center mx-auto">
+                    <div class="card-body">
+                        <h5 class="card-title">Statistiques</h5>
+                        <p class="card-text">null</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="container">
+                <div class="card bg-custom-1 w-50 text-center mx-auto">
+                    <div class="card-body">
+                        <h5 class="card-title">Statistiques</h5>
+                        <p class="card-text">null</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+
+   
+
+
+
+</div>

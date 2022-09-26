@@ -1,15 +1,11 @@
 package com.plantes.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.plantes.model.Image;
-import com.plantes.model.Plante;
 import com.plantes.services.ImageService;
 import com.plantes.services.PlanteService;
 
@@ -24,11 +20,17 @@ public class StatistiquesController {
 	@GetMapping("/statistiques")
 	public String getStats(Model model) {
 		
-		List<Plante> listePlantes = planteService.findAllPlantes();
-		List<Image> listeImages = imageService.findAll();
+		// plantes
+		Long countPlantes = planteService.getPlanteCount();
+		Double avgRusticite = planteService.moyenneRusticite();
 		
-		model.addAttribute("listePlantes", listePlantes);
-		model.addAttribute("listeImages", listeImages);
+		
+		// images
+		Long countImages = imageService.getImageCount();
+		
+		model.addAttribute("countPlantes", countPlantes);
+		model.addAttribute("avgRusticite",avgRusticite);
+		model.addAttribute("countImages",countImages);
 		
 		return "pages/statistiques";
 	}
