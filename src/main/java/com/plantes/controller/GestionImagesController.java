@@ -61,7 +61,7 @@ public class GestionImagesController {
 			imageRepository.delete(ImageDelete.get());
 		}
 		
-		return "redirect:/gestion-images/{idPlante}";
+		return "redirect:/collection";
 	}
 	
 	
@@ -69,20 +69,28 @@ public class GestionImagesController {
 	
 	@PostMapping("/gestion-images/{id}")
 	public String postGestionImages(@PathVariable(value="id") Long idPlante,
-			@RequestParam("inputImage") MultipartFile multipartFile) throws IOException {
+			@RequestParam(value= "inputImage", required=false) MultipartFile multipartFile) throws IOException {
 		
-		Optional<Plante> plante = planteRepository.findById(idPlante);
 		
-		Image newImage = new Image();
-		String inputImage = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-		newImage.setImage(inputImage);
+		if( multipartFile.getSize() > 0) {
+			
+			Optional<Plante> plante = planteRepository.findById(idPlante);
+			
+			Image newImage = new Image();
+			String inputImage = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+			newImage.setImage(inputImage);
+			
+			newImage.setPlante(plante.get());
+			
+			Image dbImage = imageService.save(newImage);
+			String uploadDir = "src/main/resources/static/plante-images/" + dbImage.getPlante().getId();
+			
+			FileUploadUtil.saveFile(uploadDir, multipartFile, inputImage);
+			
+		} 
 		
-		newImage.setPlante(plante.get());
 		
-		Image dbImage = imageService.save(newImage);
-		String uploadDir = "src/main/resources/static/plante-images/" + dbImage.getPlante().getId();
 		
-		FileUploadUtil.saveFile(uploadDir, multipartFile, inputImage);
 		
 		
 		return "redirect:/gestion-images/{id}";

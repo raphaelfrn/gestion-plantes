@@ -14,7 +14,7 @@ public interface ImageRepository extends JpaRepository<Image, Long>{
 	List<Image> findByPlante(Optional<Plante> plante);
 	
 	
-	@Query(value="SELECT * FROM Image ORDER BY RAND() LIMIT 3", nativeQuery=true)
+	@Query(value="SELECT * FROM Image ORDER BY RAND() LIMIT 9", nativeQuery=true)
 	List<Image> randomList();
 	
 	

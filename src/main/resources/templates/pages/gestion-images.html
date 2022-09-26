@@ -1,6 +1,6 @@
 <div th:replace="fragments/header::header"></div>
 <div class="container-gestion">
-
+<script defer src="/js/gestion-images.js"></script>
 
 
     <div class="container">
@@ -18,6 +18,7 @@
                     <form method="post" enctype="multipart/form-data">
                         <label for="inputImage" class="form-label">Ajouter une image</label>
                         <input class="form-control" type="file" id="inputImage" name="inputImage" accept="image/png, image/jpeg" >
+                        <p id="emptyFile"></p>
                         <button type="submit" class="btn btn-warning m-2">Ajouter</button>
                     </form>    
                 </div>

@@ -78,7 +78,7 @@ public class CollectionController {
 			System.out.println(bindingResult.getFieldError());
 			return "pages/collection";
 			
-			} else {
+			} else if(multipartFile.getSize() > 0) {
 			
 					String mainImageName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
 					plante.setMainImage(mainImageName);
@@ -87,7 +87,6 @@ public class CollectionController {
 					String uploadDir = "src/main/resources/static/plante-images/" + createdPlante.getId();
 					
 					FileUploadUtil.saveFile(uploadDir, multipartFile, mainImageName);
-					
 					
 		
 					}

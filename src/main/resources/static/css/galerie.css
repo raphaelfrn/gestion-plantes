@@ -1,5 +1,5 @@
 .container-galerie{
-    padding-top:7%;
+    padding-top:6%;
     height:100vh;
     color:#2F3E46;
     background-color: #CAD2C5;
@@ -18,3 +18,4 @@
     object-fit: cover;
     object-position: center;
   }
+

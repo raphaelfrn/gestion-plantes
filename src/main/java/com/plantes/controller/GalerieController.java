@@ -25,13 +25,10 @@ public class GalerieController {
 		
 		
 		List<Image> listeRandom1 = imageService.randomList();
-		List<Image> listeRandom2 = imageService.randomList();
-		List<Image> listeRandom3 = imageService.randomList();
-		
+	
 		
 		model.addAttribute("listeRandom1", listeRandom1);
-		model.addAttribute("listeRandom2", listeRandom2);
-		model.addAttribute("listeRandom3", listeRandom3);
+
 		
 		return "pages/galerie";
 	}
